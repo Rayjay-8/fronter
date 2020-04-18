@@ -6,7 +6,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <style media="screen">
     body{
-      background: #ddd;
+
+      background: #000;
       color: #000;
       overflow-x: auto;
       font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji" !important;
@@ -23,14 +24,13 @@
       color: #ff1919;
       width: 100%;
       height: 70px;
-      background: #3c96ff;
+      background: #343434;
       box-shadow: 0 0 7px 1px rgba(0, 0, 0, 0.1);
       position: fixed;
       top: 0;
       right: 0;
       left: 0;
       z-index: 3000;
-
     }
     .top_bar p{
       color: #fff;
@@ -105,7 +105,19 @@
       border-right: 15px solid #f48024;
       padding-left: 45px;
     }
+    *::-webkit-scrollbar{
+      width: 1.25rem;
+    }
+    *::-webkit-scrollbar-track{
 
+      background: #343434;
+
+    }
+    *::-webkit-scrollbar-thumb{
+      background: #ffc83d;
+      border-radius: 10px;
+
+    }
     textarea{
       display:block;
       resize: none;
@@ -117,7 +129,6 @@ background-image: radial-gradient(
 rgba(60, 150, 255, 0.75), black 120%);
 font-size: 15px;
     }
-
 
     #cosole_h1{
       margin: 0;
@@ -141,6 +152,7 @@ font-size: 15px;
     .bloco_02 a{
       display: block;
       margin: 20px;
+
     }
     .bbutons{
       background-color: #e66600;
@@ -232,6 +244,7 @@ font-size: 15px;
   border-color: transparent transparent #fff transparent;
   top: 7px;
 }
+
 
 
     </style>
@@ -432,7 +445,10 @@ font-size: 15px;
 
 
           <h1 id="cosole_h1">Console</h1>
-          <textarea spellcheck="false" id="console_box" name="name" rows="30" cols="3"></textarea>
+
+          <textarea wrap="off" autofocus="off" autocapitalize="off" spellcheck="false" id="console_box" rows="20" cols="3"></textarea>
+
+
         </div>
 
       </nav>
