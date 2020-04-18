@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Datack</title>
+    <title>DATACK</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <style media="screen">
     body{
@@ -267,7 +267,7 @@ font-size: 15px;
       function insert_console(type_format) {
         if (type_format == "img"){
           //OS IMPORTES SAO FEITOS AQUI
-          var template = "import imgsearch\nimport time\nimport base64"
+          var template = "from imagesearch import *\nimport time\nimport base64"
           var ja_importados = $('#console_box').val().includes(template)
           if (ja_importados != true){
             insert_text_in_line(template,1)}
@@ -299,10 +299,19 @@ font-size: 15px;
         //insert_text_in_line("Img0"+lenlen+" = Base64[...]",100);
         insert_text_in_line("Img0"+lenlen+' = """'+fonte_img.split(",")[1]+'"""',100);
         insert_text_in_line("imgdata  = base64.b64decode(Img0"+lenlen+")",100);
-        insert_text_in_line("filename = 'img"+lenlen+".png'",100);
+        insert_text_in_line("filename = 'img0"+lenlen+".png'",100);
         insert_text_in_line("with open(filename, 'wb') as f:",100);
         insert_text_in_line("    f.write(imgdata)",100);
-        console.log(lista_dados_img);
+        insert_text_in_line(" ",100);
+        insert_text_in_line("resu = imagesearch_count(filename,precision=0.9)",100);
+        insert_text_in_line(" ",100);
+        insert_text_in_line("print(resu)",100);
+        insert_text_in_line('input(f"Identificados {resu[0]} resultados continuar?")',100);
+        insert_text_in_line("ll = list((cv2.imread(filename)).shape[0:2])",100);
+        insert_text_in_line("meiox, meioy = ll[0]/2, ll[1]/2",100);
+        insert_text_in_line("for i in resu[1]:",100);
+        insert_text_in_line("    ii = list(i)",100);
+        insert_text_in_line("    pyautogui.click(ii[0]+meiox,ii[1]+meioy)",100);
       }
       function previewFile(){
 
