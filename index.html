@@ -2,8 +2,7 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>DATACK</title>
-    <link rel="icon" href="icon.png">
+    <title>exemplo</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <style media="screen">
     body{
@@ -112,9 +111,14 @@
       resize: none;
       width: 100%;
       color: #fff;
-      background-color: #343434;
-      font-size: 15px;
+      text-align: center;
+      background-color: #101010;
+background-image: radial-gradient(
+rgba(60, 150, 255, 0.75), black 120%);
+font-size: 15px;
     }
+
+
     #cosole_h1{
       margin: 0;
       margin-top: 30px;
@@ -201,10 +205,38 @@
     }
     .check_bbox{
       font-size: 26px;
+      -webkit-transition: 1.4s;
+      transition: 1.4s;
+
     }
+    select {
+      background-color: #343434;
+      border: 3px solid #e66600;
+      padding: 8px 8px;
+      font-size: 16px;
+      color: #fff;
+      cursor: pointer;
+      border-radius: 8px;
+  }
+  select:after {
+  position: absolute;
+  content: "";
+  top: 14px;
+  right: 10px;
+  width: 0;
+  height: 0;
+  border: 6px solid transparent;
+  border-color: #fff transparent transparent transparent;
+}
+.select.select-arrow-active:after {
+  border-color: transparent transparent #fff transparent;
+  top: 7px;
+}
+
 
     </style>
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script type="text/javascript" src="/eel.js"></script>
     <script>
       function  show_menu(){
         $('#id_top_bar').css('opacity',0.6)
@@ -302,6 +334,11 @@
         $('.box2').css('display','none');
         $('.box1').css('display','none');
       }
+      function runn(c){
+        console.log(c);
+        //eel.sending()(function(ret){console.log(ret)});
+        eel.open_run(c);
+      }
       var cli = 0;
       function check() {
         if (cli == 0) {
@@ -329,7 +366,7 @@
 
     <div class="top_bar" id="id_top_bar">
       <p>
-        &#129418DataCk&#129418;
+        	&#9889DataCk&#9889;
         <div class="icone_menu">
           <i class="fa fa-bars exemplo001" onclick="show_menu()"></i>
         </div>
@@ -340,10 +377,10 @@
         <div class="icone_menu">
           <i class="fa fa-bars exemplo002" onclick="hide_menu()"></i>
           <a class="gb_pc">
-            <span class="gb_tc">
+            <span class="gb_tc" >
               <i class="fas fa-home fa-fw"></i>
               Home</span>
-            <span class="gb_tc fas fa-camera">
+            <span class="gb_tc fas fa-camera" onclick="runn('print_area.pyw')">
               Screenshot</span>
             <span class="gb_tc fas fa-cog">
               Configuração</span>
@@ -372,6 +409,12 @@
             </div>
 
             <div class="bloco_02">
+              <h1>Procurar por Movimento</h1>
+              <a class="bbutons" onclick='null()'>Adicionar ao console</a>
+              <a class="bbutons_config fas fa-cog" onclick='pop("opc2")'></a>
+            </div>
+
+            <div class="bloco_02">
               <h1>Pressionar tecla</h1>
               <a class="bbutons" onclick='insert_console("img")'>Adicionar ao console</a>
               <a class="bbutons_config fas fa-cog" onclick='pop("opc2")'></a>
@@ -389,7 +432,7 @@
 
 
           <h1 id="cosole_h1">Console</h1>
-          <textarea id="console_box" name="name" rows="30" cols="3"></textarea>
+          <textarea spellcheck="false" id="console_box" name="name" rows="30" cols="3"></textarea>
         </div>
 
       </nav>
@@ -406,6 +449,7 @@
 <a class="close" id="close_id" onclick="closee()">Close</a>
 </div>
 
+
 <div class="box" id="box1" style="display: none;">
 <span class="fas fa-folder-open"></span>
 <h1>Configuração de controle</h1>
@@ -419,6 +463,15 @@
 
 <p>Set cod flag erro:
 <input class="input_time" type="text" name="" value="FailSearch(img1)">
+</p>
+<p>Fazer ao encontrar:
+    <select>
+      <option value="0">Click no Centro com Esquerdo</option>
+      <option value="1">Click no Centro com Direitro</option>
+      <option value="2">BMW</option>
+
+    </select>
+
 </p>
 <p>Realizar ajuste automatico:
 <a class="fa fa-square check_bbox" onclick="check()"></a>
