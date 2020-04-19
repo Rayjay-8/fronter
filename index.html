@@ -382,16 +382,19 @@ font-size: 15px;
         }
       }
       function get_files() {
+        //var dataa = $.getJSON("https://api.github.com/repos/Rayjay-8/api-scripts/contents/", function(data) {});
         var url = "https://api.github.com/repos/Rayjay-8/api-scripts/contents/"
-        //var dataa = $.getJSON(urll, function(data) {});
-        fetch(url)
-          .then(res => res.json())
-          .then((out) => {
-                console.log('Checkout this JSON! ', out);
-            })
-          .catch(err => { throw err });
-        //console.log(dataa.dataa.responseJSON[0]);
-      }
+        fetch(url).then(response => {
+          response.json().then(data =>{
+
+            for (var i = 0; i < data.length; i++) {
+              $(".bloco").append('<button>'+data[i].name+'</button>')
+              console.log(data[i]);
+
+            }
+          })
+        });
+}
 
     </script>
   </head>
