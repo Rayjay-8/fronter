@@ -381,6 +381,11 @@ font-size: 15px;
           cli = 0;
         }
       }
+      function get_files() {
+        var urll = "https://api.github.com/repos/Rayjay-8/api-scripts/contents/"
+        var dataa = $.getJSON(urll, function(data) {});
+        console.log(dataa.responseJSON.name);
+      }
 
     </script>
   </head>
@@ -507,6 +512,7 @@ font-size: 15px;
 
 </div>
 
+  <button type="button" name="button" onclick="get_files()">go</button>
 
   </body>
 </html>
