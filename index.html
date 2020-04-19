@@ -384,7 +384,7 @@ font-size: 15px;
       function get_files() {
         var urll = "https://api.github.com/repos/Rayjay-8/api-scripts/contents/"
         var dataa = $.getJSON(urll, function(data) {});
-        console.log(dataa.responseJSON);
+        console.log(dataa.responseJSON[0]);
       }
 
     </script>
