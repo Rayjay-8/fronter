@@ -268,7 +268,8 @@ font-size: 15px;
       function insert_console(type_format) {
         if (type_format == "img"){
           //OS IMPORTES SAO FEITOS AQUI
-          var template = "from imagesearch import *\nimport time\nimport base64"
+          var template = "from imagesearch import *\nimport time\nimport base64\nfrom desktopmagic.screengrab_win32 import (getDisplayRects, saveScreenToBmp, saveRectToBmp, getScreenAsImage,getRectAsImage, getDisplaysAsImages)\nimport cv2\nimport numpy as np\nimport pyautogui\nimport random\nimport platform\nimport subprocess"
+          
           var ja_importados = $('#console_box').val().includes(template)
           if (ja_importados != true){
             insert_text_in_line(template,1)}
