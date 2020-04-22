@@ -273,7 +273,7 @@ font-size: 15px;
           var ja_importados = $('#console_box').val().includes(template)
           if (ja_importados != true){
             insert_text_in_line(template,1)
-            insert_text_in_line("def imagesearch_count(image, precision=0.9):\n    img_rgb = getScreenAsImage()",100);
+            insert_text_in_line("def imagesearch_count(image, precision=0.9):\n    img_rgb = getScreenAsImage()\n    img_rgb = np.array(img_rgb)\n    img_gray = cv2.cvtColor(img_rgb, cv2.COLOR_BGR2GRAY)\n    template = cv2.imread(image, 0)\n    w, h = template.shape[::-1]\n    res = cv2.matchTemplate(img_gray, template, cv2.TM_CCOEFF_NORMED)\n    loc = np.where(res >= precision)\n    count = 0\n    guarda_posicaoes = []\n    for pt in zip(*loc[::-1]):\n        cv2.rectangle(img_rgb, pt, (pt[0] + w, pt[1] + h), (0, 0, 255), 2)\n        if pt not in guarda_posicaoes:\n        	guarda_posicaoes.append(pt)\n        count = count + 1\n    cv2.imwrite('result.png', img_rgb)\n    return count,guarda_posicaoes",100);
           }
           insert_text_in_line($('#data1').val(),100)
           open_img();
