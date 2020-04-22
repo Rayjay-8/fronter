@@ -272,7 +272,9 @@ font-size: 15px;
           
           var ja_importados = $('#console_box').val().includes(template)
           if (ja_importados != true){
-            insert_text_in_line(template,1)}
+            insert_text_in_line(template,1)
+            insert_text_in_line("def imagesearch_count(image, precision=0.9):\n    img_rgb = getScreenAsImage()",100);
+          }
           insert_text_in_line($('#data1').val(),100)
           open_img();
         //$('#console_box').append($('#data1').val())
