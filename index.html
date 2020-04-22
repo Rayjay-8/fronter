@@ -268,7 +268,7 @@ font-size: 15px;
       function insert_console(type_format) {
         if (type_format == "img"){
           //OS IMPORTES SAO FEITOS AQUI
-          var template = "from imagesearch import *\nimport time\nimport base64\nfrom desktopmagic.screengrab_win32 import (getDisplayRects, saveScreenToBmp, saveRectToBmp, getScreenAsImage,getRectAsImage, getDisplaysAsImages)\nimport cv2\nimport numpy as np\nimport pyautogui\nimport random\nimport platform\nimport subprocess"
+          var template = "import time\nimport base64\nfrom desktopmagic.screengrab_win32 import (getDisplayRects, saveScreenToBmp, saveRectToBmp, getScreenAsImage,getRectAsImage, getDisplaysAsImages)\nimport cv2\nimport numpy as np\nimport pyautogui\nimport random\nimport platform\nimport subprocess"
           
           var ja_importados = $('#console_box').val().includes(template)
           if (ja_importados != true){
@@ -307,7 +307,7 @@ font-size: 15px;
         insert_text_in_line("with open(filename, 'wb') as f:",100);
         insert_text_in_line("    f.write(imgdata)",100);
         insert_text_in_line(" ",100);
-        insert_text_in_line("resu = imagesearch_count(filename,precision=0.9)",100);
+        insert_text_in_line("resu = imagesearch_count(filename,precision=0.99)",100);
         insert_text_in_line(" ",100);
         insert_text_in_line("print(resu)",100);
         insert_text_in_line('input(f"Identificados {resu[0]} resultados continuar?")',100);
