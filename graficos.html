@@ -1,0 +1,38 @@
+<html>
+ <head>
+   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+   <script type="text/javascript">
+     google.charts.load('current', {'packages':['corechart']});
+     google.charts.setOnLoadCallback(drawChart);
+
+     function drawChart() {
+       var data = google.visualization.arrayToDataTable([
+         ['Passo', 'Objetivo', 'Execultado'],
+         ['Passo 1',  4,        4],
+         ['Passo 2',  9,        9],
+         ['Passo 3',  5,        6],
+         ['Passo 4',  13,      11],
+         ['Passo 5',  4,      3]
+       ]);
+
+       var options = {
+         title: 'Script: Login.py - Tempo gasto em segundos',
+         curveType: 'function',
+         legend: { position: 'bottom' }
+       };
+
+       var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+
+       chart.draw(data, options);
+     }
+   </script>
+   
+ </head>
+ <body>
+   <div id="curve_chart" style="width: 900px; height: 500px"></div>
+    
+   </div>
+
+
+ </body>
+</html>

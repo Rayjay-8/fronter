@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>github repo</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/93bd748131.js" crossorigin="anonymous"></script>
+
+    <script type="text/javascript">
+
+    function SEARCH(data,word) {
+      console.log(data);
+      console.log(word);
+      var ddd = String(data).startsWith(word.toLocaleLowerCase())
+      return ddd
+
+    }
+      function get_files() {
+        //var dataa = $.getJSON("https://api.github.com/repos/Rayjay-8/api-scripts/contents/", function(data) {});
+        var url = "https://api.github.com/repos/Rayjay-8/api-scripts/contents/"
+        var word = document.querySelector("body > div > input").value
+        var achou_algo = false
+        fetch(url).then(response => {
+          response.json().then(data =>{
+
+            for (var i = 0; i < data.length; i++) {
+              var ppp = SEARCH(data[i].name,word);
+              console.log(ppp);
+              if(ppp){
+                $(".bloco").append('<div class="B-FILHO"><h1>'+data[i].name+'</h1><a href='+data[i].download_url+'>Go GitHub</a></div>')
+                achou_algo = true;
+              }
+              if (i == data.length-1 && achou_algo == false ){
+              //console.log("sem resultados");
+              window.alert("sem resultados");
+              console.log(data);
+              }
+              //$(".bloco").append('<button>'+data[i].name+'</button>')
+              //console.log(data[i]);
+
+            }
+          })
+        });
+}
+    </script>
+    <style media="screen">
+
+    body{
+      background: #04ab94;
+    }
+    .bloco{
+      overflow: auto;
+      position: absolute;
+      top: 37%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+
+
+      padding: 20px;
+      width: 80%;
+      display: flex;
+      padding-left: 2%;
+    }
+    .B-FILHO{
+      margin-left: 30px;
+      padding-right: 2%;
+      color: #fff;
+      text-align: center;
+      background: #1212;
+      border-radius: 10px;
+    }
+    .counter{
+      position: absolute;
+      top: 20%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+      border-radius: 10px;
+      background: #343434;
+      padding: 20px;
+    }
+
+    .src-btn{
+      color: #fff;
+      font-size: 2.2rem;
+      float: right;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-decoration: none;
+      transition: 0.4s;
+    }
+      .bbn{
+        color: #fff;
+        border: none;
+
+
+        background: none;
+        outline: none;
+        float: left;
+        padding: 0;
+        font-size: 2.2rem;
+
+        line-height: 40px;
+        width: 20rem;
+        transition: 1s;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="counter">
+      <input  class="bbn" type="text" name="" placeholder="Procurar script" value="">
+      <a class="src-btn" href="#" onclick="get_files()">
+        <i class="fas fa-search"></i>
+      </a>
+    </div>
+
+    <div class="bloco">
+
+
+
+    </div>
+
+  </body>
+</html>
