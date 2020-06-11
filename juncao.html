@@ -425,8 +425,28 @@
     max-height: 200px;
   }
   .main_classificados{
-    
+    top: 70px;
+    left: 280px;
+    width: 70%;
+    position: absolute;
+    height: auto;
+    margin: 30px;
+    font-size: 30px;
+    background: #252b31;
+    color: #fff;
+    border: 4px solid #f48024;
+    border-radius: 4px;
+    padding: 0.1rem;
+    cursor: pointer;
+    text-align: center;
+    height: 80%;
+    overflow: auto;
+
   }
+  #classifyed:hover{
+    background: #454b51;
+  }
+
 
 
     </style>
@@ -986,7 +1006,8 @@ function imageZoom(imgID, resultID) {
   }
   function classificados() {
     console.log("open classificados");
-    $(".container2").css("filter","blur(20px)")
+    $(".container2").css("filter","blur(50px)")
+
     $(".classificados").css("display","block")
   }
 
@@ -1015,6 +1036,7 @@ function imageZoom(imgID, resultID) {
     }}
 function clomemek() {
   $(".container2").css("filter","blur(0px)")
+
   $(".classificados").css("display","none")
 }
 
@@ -1037,6 +1059,29 @@ async function analisy() {
     var con = await eel.salva_img(dado)(replaceey);
   }
 }
+var lista_dos_nomes_arquivos = ""
+var ja_fez_fatch = 1;
+$(".classificados").ready(function () {
+
+  console.log( "ready!" );
+  url = "https://api.github.com/repos/Rayjay-8/api-scripts/contents/Classificados.json"
+  //fetch(url).then(response => {
+    //response.json().then(data =>{
+      //lista_dos_nomes_arquivos = data;console.log(lista_dos_nomes_arquivos.download_url)})});
+  var data_fake = [{"id":"001","Nome":"Cadastro de produto 1","blocos": "0,0,200,200","texto":"cadastro 001!!!"},{"id":"002","Nome":"Cadastro de produto 2","blocos": "0,0,200,200","texto":"cadastro 001!!!"},{"id":"002","Nome":"Cadastro de Cliente","blocos": "0,0,200,200","texto":"cadastro 001!!!"},{"id":"002","Nome":"Teste","blocos": "0,0,200,200","texto":"cadastro 001!!!"},{"id":"002","Nome":"Teste","blocos": "0,0,200,200","texto":"cadastro 001!!!"},{"id":"002","Nome":"Teste","blocos": "0,0,200,200","texto":"cadastro 001!!!"},{"id":"002","Nome":"Teste","blocos": "0,0,200,200","texto":"cadastro 001!!!"},{"id":"002","Nome":"Teste","blocos": "0,0,200,200","texto":"cadastro 001!!!"},{"id":"002","Nome":"Teste","blocos": "0,0,200,200","texto":"cadastro 001!!!"},{"id":"002","Nome":"Teste","blocos": "0,0,200,200","texto":"cadastro 001!!!"},{"id":"002","Nome":"Teste","blocos": "0,0,200,200","texto":"cadastro 001!!!"},{"id":"002","Nome":"Teste","blocos": "0,0,200,200","texto":"cadastro 001!!!"}]
+  console.log(data_fake);
+  for (var i = 0; i < data_fake.length; i++) {
+    templete01 = "<h2 id='classifyed'>"+data_fake[i].Nome+"<br>"+"</h2>"
+    $(".main_classificados").append(templete01)
+  }
+
+
+
+  //return data_fake;
+
+
+})
+
 </script>
 
 
@@ -1217,7 +1262,7 @@ async function analisy() {
 </div>
 <div class="div_img_display"></div>
 
-<div class="classificados" style="display: flex">
+<div class="classificados" >
    <div class="main_classificados">
 
    </div>
