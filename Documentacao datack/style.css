@@ -1,0 +1,38 @@
+img{
+  width: auto;
+  height: auto;
+  position: absolute;
+  top:20px;
+
+}
+.indicador2{
+  filter: opacity(0.7);
+
+  background: red;
+  position: absolute;
+  cursor: pointer;
+}
+.indicador2:hover{
+  filter: opacity(0.3);
+}
+.menu{
+  width: auto;
+  height: auto;
+  background: #343434;
+  color: #fff;
+  position: absolute;
+  border-radius: 4px;
+  display: none;
+  font-size: 20px;
+  padding: 10px;
+  border: 3px solid #f44;
+  max-width: 500px;
+}
+.niraImg{
+  background: #343434;
+  position: absolute;
+  width: 300px;
+  height: 200px;
+  top: 100px;
+  left: 1200px;
+}
