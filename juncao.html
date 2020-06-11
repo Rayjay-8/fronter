@@ -5,6 +5,10 @@
     <title>DATACK</title>
     <link rel="icon" href="https://www.pngrepo.com/png/203226/180/flash-thunder.png">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+
     <style media="screen">
     body{
       background: rgba(80, 95, 97, 0.58);
@@ -443,9 +447,52 @@
     overflow: auto;
 
   }
-  #classifyed:hover{
+  .classie:hover{
     background: #454b51;
   }
+  .classie{
+    display: flex;
+    align-items: center;
+    user-drag: none;
+user-select: none;
+-moz-user-select: none;
+-webkit-user-drag: none;
+-webkit-user-select: none;
+-ms-user-select: none;
+
+  }
+  .classie>img{
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    margin: 10px;
+    user-drag: none;
+user-select: none;
+-moz-user-select: none;
+-webkit-user-drag: none;
+-webkit-user-select: none;
+-ms-user-select: none;
+  }
+  #classifyed{
+        margin: 20px;
+  }
+.documenta{
+  display: -webkit-box;
+  position: absolute;
+  top: 60px;
+  left: 300px;
+  align-content: center;
+
+  height: 100%;
+  z-index: 9999999;
+
+}
+#voltar_class{
+  font-size: 40px;
+  position: absolute;
+  top: 60px;
+
+}
 
 
 
@@ -1009,6 +1056,7 @@ function imageZoom(imgID, resultID) {
     $(".container2").css("filter","blur(50px)")
 
     $(".classificados").css("display","block")
+    click_out()
   }
 
   function choose_file() {
@@ -1038,6 +1086,7 @@ function clomemek() {
   $(".container2").css("filter","blur(0px)")
 
   $(".classificados").css("display","none")
+
 }
 
 function replaceey(src) {
@@ -1071,7 +1120,8 @@ $(".classificados").ready(function () {
   var data_fake = [{"id":"001","Nome":"Cadastro de produto 1","blocos": "0,0,200,200","texto":"cadastro 001!!!"},{"id":"002","Nome":"Cadastro de produto 2","blocos": "0,0,200,200","texto":"cadastro 001!!!"},{"id":"002","Nome":"Cadastro de Cliente","blocos": "0,0,200,200","texto":"cadastro 001!!!"},{"id":"002","Nome":"Teste","blocos": "0,0,200,200","texto":"cadastro 001!!!"},{"id":"002","Nome":"Teste","blocos": "0,0,200,200","texto":"cadastro 001!!!"},{"id":"002","Nome":"Teste","blocos": "0,0,200,200","texto":"cadastro 001!!!"},{"id":"002","Nome":"Teste","blocos": "0,0,200,200","texto":"cadastro 001!!!"},{"id":"002","Nome":"Teste","blocos": "0,0,200,200","texto":"cadastro 001!!!"},{"id":"002","Nome":"Teste","blocos": "0,0,200,200","texto":"cadastro 001!!!"},{"id":"002","Nome":"Teste","blocos": "0,0,200,200","texto":"cadastro 001!!!"},{"id":"002","Nome":"Teste","blocos": "0,0,200,200","texto":"cadastro 001!!!"},{"id":"002","Nome":"Teste","blocos": "0,0,200,200","texto":"cadastro 001!!!"}]
   console.log(data_fake);
   for (var i = 0; i < data_fake.length; i++) {
-    templete01 = "<h2 id='classifyed'>"+data_fake[i].Nome+"<br>"+"</h2>"
+
+    templete01 = "<div class='classie' onclick='show_finb()'><img src='0206.jpg' alt=''><h2 id='classifyed'>"+data_fake[i].Nome+"<br>"+"</h2></div>"
     $(".main_classificados").append(templete01)
   }
 
@@ -1081,7 +1131,19 @@ $(".classificados").ready(function () {
 
 
 })
-
+function show_finb() {
+  $(".documenta").css("display","-webkit-box")
+  $(".main_classificados").css('filter','blur(50px)');
+  click_out()
+  show_console()
+}
+function antishow() {
+  $(".documenta").css("display","none")
+  $(".main_classificados").css('filter','blur(0)');
+  clomemek()
+  //click_out()
+  //show_console()
+}
 </script>
 
 
@@ -1262,13 +1324,27 @@ $(".classificados").ready(function () {
 </div>
 <div class="div_img_display"></div>
 
-<div class="classificados" >
+<div class="classificados" style="display: none" >
+  <button type="button" name="button" id="voltar_class" onclick="antishow()">Fechar</button>
    <div class="main_classificados">
 
-   </div>
+</div>
+
+<div class="documenta" style="display: none">
+  <div class="indicador" >
+    <img id="img_upup" src="0206b.jpg" alt="" >
+  </div>
+  <div class="menu"></div>
+  <div id="preview" style="display: inline-block"></div>
+
+
+</div>
+
 </div>
 
 
-
+<script src="myscrpts.js"></script>
+<script type="text/javascript" src="click-sub.js"></script>
+<script type="text/javascript" src="click-menucont.js"></script>
   </body>
 </html>
