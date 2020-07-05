@@ -1,0 +1,636 @@
+<!doctype html>
+<html lang = "en">
+   <head>
+      <meta charset = "utf-8">
+      <title>jQuery UI Resizable functionality</title>
+      <link href = "https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css"
+         rel = "stylesheet">
+      <script src = "https://code.jquery.com/jquery-1.10.2.js"></script>
+      <script src = "https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+      <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+      <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+
+      <!-- CSS -->
+      <style>
+
+        body{
+          color: #fff;
+          background: #343434;
+          display: flex;
+
+
+        }
+        .bloco{
+      		width: 200px;
+          background: #4eb5b5;
+          border-radius: 10px;
+          padding-right: 50px;
+          padding-left: 10px;
+
+          position: absolute;
+          top: 0;
+    left: 0;
+        height: 60%;
+    padding-top: 100px;
+    overflow: hidden;
+      	}
+        .viva{
+          width: 280px;
+           height: 150px;
+            padding: 0.5em;
+          text-align: center;
+           margin-top: 20px;
+           margin-left: 320px;
+           position:absolute;
+            border-radius: 5px;
+            cursor: move;
+          z-index: 100;
+        }
+        .ray{
+          position: absolute;
+          top: 0;
+        }
+
+         .ui-widget-content {
+
+            background: #d26666aa;
+            color: #333333;
+         }
+         .ui-widget-content:hover{
+           background: #d8d8d873 !important;
+         }
+         img{
+           width: 100%;
+          object-fit: initial;
+           z-index: -1;
+           -moz-user-select: none;
+          -webkit-user-select: none;
+          user-select: none;
+         }
+         input{
+
+           margin-bottom: 5px;
+           position: relative;
+           width: 100%;
+           height: 40px;
+           border: none;
+           border-radius: 3px;
+           background: #343434;
+           color: #fff;
+           font-size: 18px;
+           outline: none;
+           padding-left: 10px;
+           font-size: 20px;
+           margin-top: 15px;
+           margin-left: 5px;
+
+       	}
+        #urlid{
+          margin-top: 15px;
+        }
+
+         button{
+           outline: none;
+           display: block;
+           width: 100%;
+           height: 40px;
+           margin: 15px auto;
+           background-color: #343434;
+           color: #fff;
+           font-size: 20px;
+           border: none;
+           border-radius: 30px;
+           cursor: pointer;
+           transition: .3s linear;
+          margin-left: 5px;
+         }
+         button:hover{
+           opacity: .85;
+         }
+         #hahah>button{
+           margin: 0 !important;
+
+         }
+         #img_lug{
+           top: 2px;
+           left: 270px;
+
+           display: flex;
+           position: absolute;
+
+          border: 3px solid #fff;
+          max-height: 800px;
+          max-width: 80%;
+          margin-bottom: 100px;
+
+         }
+         #addobj{
+           background: #993333;
+         }
+         .menu{
+  width: auto;
+  height: auto;
+  background: #343434;
+  color: #fff;
+  position: absolute;
+  border-radius: 4px;
+  display: none;
+  font-size: 20px;
+  padding: 10px;
+  border: 3px solid #f44;
+  max-width: 500px;
+  max-height: 40%;
+  z-index: 300;
+  border: 2px solid #fff;
+}
+.menu button:hover{
+  background: #646464;
+}
+
+
+.dragging{
+  cursor: move;
+  z-index: 200 !important
+}
+#blockcores{
+  width: 155px;
+  height: 135px;
+  background: #4eb5b5;
+  border-radius: 10px;
+  border: 2px solid #000;
+  display: none;
+  position: absolute;
+  top:440px;
+  left: 5px;
+  padding: 2px;
+  z-index: 207;
+}
+.miniblocks{
+  width: 40px;
+    height: 14px;
+    border: 4px solid #000;
+    border-radius: 10px;
+    margin-left: 3px;
+    margin-top: 1px;
+    display: inline-flex;
+    cursor: pointer;
+}
+.dicas{
+  display: none;
+  width: auto;
+  height: auto;
+  background: #343434;
+  color: #fff;
+  position: absolute;
+  border-radius: 4px;
+  font-size: 20px;
+  padding: 10px;
+  border: 3px solid #fff;
+  z-index: 201;
+  border-radius: 10px;
+  min-width: 330px;
+}
+h1{
+  font-family: sans-serif;
+  font-weight: 100;
+}
+.btins > button{
+  background: #000;
+  font-size: 20px;
+  width: 150px;
+}
+textarea{
+  background-color: #242424;
+  color: #fff;
+  font-size: 17px;
+  outline: none;
+  border: none;
+  min-width: 330px;
+  min-height: 180px;
+}
+.popupdicarapido{
+  weight:100%;
+  height: 400px;
+  background: red;
+  position: relative;
+}
+.popupdicarapido .popuptext {
+  width: 150px;
+  background-color: #343434;
+
+  text-align: center;
+  border-radius: 6px;
+  padding: 18px 10px;
+  position: absolute;
+  z-index: 202;
+  border: 4px solid #ed3833;
+  font-size: 18px;
+  font-family: sans-serif;
+  justify-content: center;
+  max-width: 200px;
+  display: inline-block;
+  word-wrap: break-word;
+}
+.popupdicarapido .popuptext::after {
+  content: "";
+  position: absolute;
+  top: 10%;
+  left: 100%;
+  border-width: 15px;
+  border-style: solid;
+  border-color: #c74343 transparent transparent transparent;
+  transform: rotate(-90deg);
+}
+.submenu{
+    position: sticky;
+    top: 0;
+}
+      </style>
+
+      <!-- Javascript -->
+      <script>
+
+
+
+
+         function addy(l=300,t=150,h=150,w=280,cor="rgba(210,102,102,0.55)",ms) {
+           //setting default values
+           //b = (typeof b !== 'undefined') ? b : 1;
+
+           //var estilo = "height: "+h+"; width: "+w+";"
+           //"+estilo+"
+           var newele = "<div id = 'resizable' class = 'ui-widget-content viva' datadado='"+ms+"'></div>"
+
+           $(".ray").append(newele)
+           $(".viva").last().draggable();
+           $(".viva").last().resizable({ minHeight: 0,minWidth:1});
+           //$(".viva").last()[0].offsetTop = t;
+           //$(".viva").last()[0].offsetLeft = l;
+           $(".viva").last().offset({top:t,left:l+8})
+           $(".viva").last()[0].style.height = h+"px";
+           $(".viva").last()[0].style.width = w+"px";
+           $(".viva").last()[0].style.background = cor;
+           //console.log(target);
+           //
+
+           //console.log($(".viva").last()[0]);
+
+         }
+         function creatblkapi(contentx) {
+           var posiapi = JSON.parse(contentx)
+           console.log(posiapi);
+           for (var i = 0; i < posiapi.length; i++) {
+             w = posiapi[i].Positions.WIDTH
+             h = posiapi[i].Positions.HEIGHT
+             t = posiapi[i].Positions.TOP
+             l = posiapi[i].Positions.LEFT
+             cor = posiapi[i].Positions.COR
+             ms = posiapi[i].Positions.DICA
+             //zzz
+             addy(l,t,h,w,cor,ms);
+           }
+
+         }
+         function getPositionSaved() {
+           //imgs/2.png
+           //$("#imgid")[0].src = "./imgs/2.png"
+           //http://localhost:5001/imgs?name=1
+           //$("#imgid")[0].src = "imgs/"+$("#idimg2")[0].value+".png"
+           var idd = $("#idimg")[0].value
+           var nameimg = $("#idimg2")[0].value
+
+           $("#savebtn").css("background","#343434")
+           evnid(idd,'http://localhost:5000/getp?id=',"get")
+           evnid(nameimg,'http://localhost:5001/imgs?namy=','gimg')
+
+         }
+         function getPositionSave() {
+
+
+           //if ($("#idimg").value)
+           if ($("#idimg")[0].value) {
+             var contente = [];
+             var idimg = $("#idimg")[0].value
+             for (var i = 0; i < $(".viva").length; i++) {
+               var TOP = $(".viva")[i].offsetTop
+               var LEFT = $(".viva")[i].offsetLeft
+               var twidth = $(".viva")[i].style.width.replace("px","")
+               var theight = $(".viva")[i].style.height.replace("px","")
+               var cor = $(".viva")[i].style.background
+               var dicasave = $(".viva").eq(i).attr('datadado')
+               var ssrc = $("#imgid")[0].src;
+               //console.log(typeof(cor));
+               //console.log(cor == '');
+               if (cor == "") {cor = "rgba(210,102,102,0.55)"}
+               //console.log(cor);
+               var a = {"Positions":{'ID':idimg,'TOP':TOP,'LEFT':LEFT,'WIDTH':parseInt(twidth),'HEIGHT':parseInt(theight),'COR':cor,'DICA':dicasave}}
+               contente.push(a)
+           }
+           }
+
+           if(contente != undefined){$("#savebtn").css("background","green");contente.push(ssrc);console.log(JSON.stringify(contente));evnid(JSON.stringify(contente),'http://localhost:5000/post?comment=')}
+
+           else {console.log("informe o id da imagem");$("#idimg")[0].focus()}
+         }
+         //funcao de realisar requests
+         function evnid(coment,url,g="pos") {
+           var idimg = $("#idimg")[0].value
+
+          const URL_TO_FETCH = url+coment+'&name=ray'+"&id="+idimg; fetch(URL_TO_FETCH, {})
+          .then(function(response) {
+          response.text()
+          .then(function(result){
+            //console.log(result);
+            console.log("fetch ok!!");
+            if (g == "get") {creatblkapi(result)}
+            //if (g == "gimg") {console.log(result);}
+            if (g == "gimg") {console.log("server de imgs OK!!!");$("#imgid")[0].src = result;}
+            //$(".Retorno").empty()
+            //$(".Retorno").append(result)
+          })
+        })
+        .catch(function(err) { $(".Retorno").empty();$(".Retorno").append(err); });
+          }
+
+          function carregaimg() {
+            console.log("carregou");
+            var preview = document.querySelector('img');
+            var file    = document.querySelector('input[type=file]').files[0];
+            var reader  = new FileReader();
+
+            //var file = $("#urlid")[0].files;
+
+
+            if (file.size > 0) {
+
+               reader.onloadend = function () {
+                //$("#imgid")[0].src = event.target.result
+                preview.src = reader.result;
+
+              }
+              reader.readAsDataURL(file);
+            }
+
+          }
+
+
+      </script>
+   </head>
+
+   <body>
+
+      <div class="main-ha">
+        <div id="hahah" class="menu">htre</div>
+      </div>
+
+
+     <div id="img_lug">
+       <img id="imgid" src="https://acquire.io/wp-content/uploads/2017/07/product-onboarding-Acquire.png" alt="imagem vai aqui!!">
+     </div>
+      <!-- HTML -->
+
+
+      <div class="bloco">
+      <input id="urlid" type="file" accept="image/*" onchange="carregaimg()">
+      <input id="idimg" type="text" name="" value="" placeholder="Positions ID">
+      <input id="idimg2" type="text" name="" value="" placeholder="imagem ID">
+      <button type="button" name="button" onclick="addurlimg()">Add IMG</button>
+      <button id="addobj" type="button" name="button" onclick="addy()">Add object</button>
+      <button type="button" name="button" onclick="diaable()">Disable edition</button>
+      <button type="button" name="button" onclick="duper()">Enable edicao</button>
+      <button id="savebtn" type="button" name="button" onclick="getPositionSave()">Save</button>
+      <button type="button" name="button" onclick="getPositionSaved()">Carregar ID</button>
+      </div>
+      <div id="blockcores">
+        <div class="miniblocks" style="background:#a7ff83"></div>
+        <div class="miniblocks" style="background:#17b978"></div>
+        <div class="miniblocks" style="background:#85203b"></div>
+        <div class="miniblocks" style="background:#071a52"></div>
+        <div class="miniblocks" style="background:#fc85ae"></div>
+        <div class="miniblocks" style="background:#9e579d"></div>
+        <div class="miniblocks" style="background:#574b90"></div>
+        <div class="miniblocks" style="background:#303a52"></div>
+
+        <div class="miniblocks" style="background:#ddf516"></div>
+        <div class="miniblocks" style="background:#ff304f"></div>
+        <div class="miniblocks" style="background:#2f89fc"></div>
+        <div class="miniblocks" style="background:#ea7dc7"></div>
+        <div class="miniblocks" style="background:#ff8a5c"></div>
+        <div class="miniblocks" style="background:#00fff0"></div>
+        <div class="miniblocks" style="background:#74f9ff"></div>
+      </div>
+      <div class="popupdicarapido" style="display:none"><span class="popuptext" id="myPopup">DICA RAPIDA<br>DICA RAPIDA<br></span></div>
+      <div class="dicas">
+        <h1>Notas</h1>
+
+        <textarea id="edittips" name="name" rows="6" cols="30" placeholder='Deixe uma dica muito importante'></textarea>
+        <div class="btins" style="display:flex">
+          <button onclick="hidde10()">Fechar</button>
+          <button onclick="salvadica()">Salvar</button>
+        </div>
+
+      </div>
+      <div class="ray"></div>
+
+        <script type="text/javascript">
+        var tarss = ""
+        $(".ray").on("mouseover",".viva",function (e) {
+            var target = $( event.target );
+            tarss = target;
+        })
+
+        $(".main-ha").mouseup(function (e) {
+          console.log("clicou$%^");
+          $(".menu").css("display","none")
+
+        })
+        $(".ray").on("mouseover",".viva",function (e) {
+          //var target = $( event.target );
+          if (tarss.attr('datadado') != undefined && tarss[0].style.top != "") {
+          console.log("aqui");
+          console.log(tarss);
+
+          hiddeall()
+          //console.log(tarss);
+          $(".popupdicarapido").css("display","block")
+          //console.log($(this).last());
+          var bb = tarss[0].style.top
+          var nn = parseInt(tarss[0].style.left,10)+130+"px"
+          //console.log(bb);
+          //console.log(nn);
+
+          $(".popupdicarapido").css("top",bb)
+          $(".popupdicarapido").css("left",nn)
+          //console.log(tarss.attr('datadado'));
+
+          $(".popuptext").show();
+          if (tarss.attr('datadado') != 'undefined') {
+
+            $(".popuptext").last()[0].innerHTML = tarss.attr('datadado')
+
+          }else {
+            $(".popuptext").last()[0].innerHTML = "Nada ainda"
+          }
+
+
+
+
+        }})
+
+        var space_default = 20;
+        $(".ray").on("contextmenu",".viva",function (e) {
+          var target = $( event.target );
+          tarss = target
+          if (tarss[0].style.left != "") {
+            $(".menu").html("<button onclick='changecolor()'>Cor</button><button>Basico</button><button>Influencias</button><button>Avancado</button><button onclick='showdicas()'>Notas</button><button>Sub-tela</button><button>Duplicar</button><button>SQL</button><button onclick='removeme()'>Remover</button>");
+            $(".menu").css("display","block")
+            //xxx
+            $(".menu").last().css("top",event.y)
+            $(".menu").last().css("left",event.x)
+            var sgooo = parseInt(tarss[0].style.left,10)+130+"px"
+
+            //$(".menu").last().css("left",parseInt(tarss[0].style.left,10)+280+"px")
+            //$(".menu").last().css("top",parseInt(tarss[0].style.top,10)+0+"px")
+            console.log("xxxxxxxxxxxxxxxxxxx");
+            console.log(sgooo);
+
+            $(".menu").last().draggable();
+            $(".menu").last().resizable({ minHeight: 0,minWidth: 1});
+            hiddeall()
+          }
+
+          return false
+          })
+      $(".viva").resizable();
+      $( ".viva" ).draggable();
+      console.log("agora");
+      $(".viva").mousedown(function(e) {
+        drag.removeClass('dragging')
+
+
+      })
+      function hidde10() {
+        $(".dicas").toggle()
+      }
+
+      $(".miniblocks").click(function (e) {
+        console.log("clickou88");
+        //hiddeall()
+        $(".miniblocks").css("border","4px solid #000")
+        $(this).css("border","4px solid #fff")
+        //$(this).removeClass( "hover" )
+        //tarss
+        var corclt = $(this)[0].style.background
+        var cc = corclt.replace(')', ', 0.55)').replace('rgb', 'rgba')
+        //var corclt = $(this)[0].style.getPropertyValue("background-color")
+
+        tarss.css("background",cc)
+        tarss.addClass("hover")
+
+      })
+
+      $(".viva").mouseup(function(e) {
+        console.log("soltou");
+        drag = $(this).closest('.viva')
+        drag.addClass('dragging')
+      })
+
+      function addurlimg() {
+        var url = $("#urlid")[0].value
+        $("#imgid")[0].src = url
+      }
+
+      function showdicas() {
+        //$(".dicas").toggle()
+        console.log("ximb");
+        //console.log(tarss);
+        console.log(tarss.attr('datadado'));
+        if (tarss.attr('datadado') != "undefined" && tarss.attr('datadado') != undefined) {
+          $("#edittips")[0].value = tarss.attr('datadado')
+        }else {
+          $("#edittips")[0].value = ""
+        }
+
+
+        $(".dicas").css("display","block")
+        $(".dicas").draggable()
+        $(".dicas").css("top",$("#hahah").css('top'))
+        $(".dicas").css("left",parseInt($("#hahah").css('left'),10)+40+"px")
+        $("#edittips").focus()
+      }
+      function salvadica() {
+        console.log(tarss);
+        tarss.attr('datadado',$("#edittips").val())
+        hiddeall()
+        //tarss[0].click()
+        //.attr('datadado','ray')
+      }
+      function removeme() {
+        console.log("vou remover");
+        console.log(tarss);
+        $(".popuptext").hide()
+        if ( tarss.is( ".viva" ) ){
+          console.log("[e da classe vida]");
+          tarss.remove();
+        }
+      }
+      function changecolor() {
+        console.log("selecione uma cor");
+        $("#blockcores").css("display","-webkit-box")
+        $("#blockcores").css("top",$("#hahah").css('top'))
+        $("#blockcores").css("left",parseInt($("#hahah").css('left'),10)+0+"px")
+        //$(".menu").css("display","block")
+      }
+      function hiddeall() {
+        $("#blockcores").css("display","none")
+        $(".dicas").css("display","none")
+
+      }
+      function diaable() {
+        $( ".viva" ).draggable('disable');
+        $( ".viva" ).resizable('disable')
+        console.log("disable");
+      }
+      function duper() {
+        $( ".viva" ).draggable('enable');
+        $( ".viva" ).resizable('enable')
+        console.log("disable");
+      }
+
+      $(document).ready(function(){
+        $("body").keypress(function(e){
+          console.log(e.keyCode);
+          if (e.key == 'n') {
+            if ($("input").is(":focus") || $("textarea").is(":focus")) {
+              console.log("esta digitanto nao faz nada");
+              console.log(event.pageX);
+            }
+            else {
+              console.log(ultimapy,ultimapx);
+              addy(ultimapx-10,ultimapy)
+            }
+
+            //console.log($(document.activeElement));
+          }
+          //var $("#img_lug").css("width","100%")
+          if (e.keyCode == 61) {
+            console.log("dar zoom");
+            $("#img_lug").css("width","100%");
+
+          }
+
+          });
+          var ultimapx = "69px"
+          var ultimapy = "156px"
+          $("body").mousemove(function(event){
+            //console.log(event.pageY);
+            ultimapy = event.pageY
+            ultimapx = event.pageX
+            //console.log(event.pageX);
+            });
+          });
+
+      </script>
+  </body>
+</html>
