@@ -3,12 +3,21 @@
   <head>
     <meta charset="utf-8">
     <title>DATACK</title>
+
+	<link rel="stylesheet" type="text/css" href="css/util.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
     <link rel="icon" href="https://www.pngrepo.com/png/203226/180/flash-thunder.png">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <!--<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>-->
+    <link rel="stylesheet" type="text/css" href="style.css">
+
     <style media="screen">
     body{
+      background: rgba(80, 95, 97, 0.58);
 
-      background: #1f253d;
       color: #000;
       overflow-x: auto;
       font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji" !important;
@@ -24,7 +33,7 @@
       border-bottom: 6px solid #f48024;
       color: #ff1919;
       width: 100%;
-      height: 70px;
+      height: 50px;
       background: #343434;
       box-shadow: 0 0 7px 1px rgba(0, 0, 0, 0.1);
       position: fixed;
@@ -32,12 +41,13 @@
       right: 0;
       left: 0;
       z-index: 3000;
+      display: grid;
     }
     .top_bar p{
       color: #fff;
       display: block;
       text-align: center;
-      font-size: 50px;
+      font-size: 30px;
       margin: 0;
       font-family: 'Roboto', sans-serif;
     }
@@ -47,7 +57,7 @@
       width: 300px;
       height: 100%;
       position: fixed;
-      background: #1f253d;
+      background: #252b31;
       box-shadow: 0 0 7px 1px rgba(0, 0, 0, 0.6);
       top: 0;
       right: 0;
@@ -58,17 +68,24 @@
     .exemplo001{
       color: #fff;
       position: absolute;
-      font-size: 50px;
+      font-size: 40px;
       top: 7px;
       left: 20px;
       z-index: 5;
       cursor: pointer;
     }
+    .minhas_tasks{
+      position: absolute;
+    z-index: 2000;
+    top: 56px;
+    left: 0;
+    width: 100vw;
+    }
 
     .exemplo002{
       color: #fff;
       position: absolute;
-      font-size: 50px;
+      font-size: 40px;
       top: 7px;
       left: 20px;
       z-index: 5;
@@ -77,6 +94,8 @@
 
     a{
       cursor: pointer;
+      text-decoration: none;
+      color: #fff;
 
     }
     .span{
@@ -119,26 +138,88 @@
       border-radius: 10px;
 
     }
+
     textarea{
+      border-radius: 10px;
+      outline: none;
+      display:block;
+      resize: none;
+      width: 99%;
+      color: #fff;
+      height: 400px;
+      background-color: #101010;
+      background-image: linear-gradient( 171.8deg,  rgba(5,111,146,1) 13.5%, rgba(6,57,84,1) 78.6% );
+      font-size: 25px;
+      border: 3px #fff solid;
+    }
+    .bloco_02>textarea{
+
+      width: 100%;
+      height: 50px;
+    }
+    #miniconsole{
+      border-radius: 10px;
+      height: 150px;
+      outline: none;
       display:block;
       resize: none;
       width: 100%;
       color: #fff;
       text-align: center;
-      background-color: #101010;
-background-image: radial-gradient(
-rgb(119, 144, 241, 0.5), black 120%);
-font-size: 15px;
-    }
+      font-size: 25px;
 
+    }
+    li{
+      display: inline-block;
+    }
     #cosole_h1{
       margin: 0;
-      margin-top: 30px;
+      margin-top: 3px;
       background-color: #202020;
       color: #fff;
       height: 40px;
-      width: 100%;
+      width: 25.2rem;
+      cursor: pointer;
+      display: inline-block;
     }
+    .blocokkk{
+      width: 200px;
+      background: #252b31;
+      border-radius: 0 10px 10px 0;
+      padding-right: 25px;
+      padding-left: 25px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 60%;
+      padding-top: 100px;
+      overflow: hidden;
+      	}
+        .blocokkk>button{
+           outline: none;
+           display: block;
+           width: 100%;
+           height: 40px;
+           margin: 15px auto;
+           background-color: #BB5809;
+           color: #fff;
+           font-size: 20px;
+           border: none;
+           border-radius: 30px;
+           cursor: pointer;
+           transition: .3s linear;
+
+         }
+
+      #imgid{
+        width: 100%;
+          object-fit: initial;
+           z-index: -1;
+           -moz-user-select: none;
+          -webkit-user-select: none;
+          user-select: none;
+      }
+
     .bloco_02{
       background-color: #343434;
       padding: 30px;
@@ -164,18 +245,51 @@ font-size: 15px;
       border-radius: 10px;
       margin: 20px;
       padding-left: 10%;
-
+      color: #fff;
+    }
+    .bloco_importante_flex{
+      display: flex;
     }
     .main_blocos{
       display: contents;
       padding: 10px;
       margin: 10px;
     }
+    .blocos{
+        width: 100%;
+        height: 100px;
+        text-align: center;
+        background-image: linear-gradient( 171.8deg, rgba(5,111,146,1) 13.5%, rgba(6,57,84,1) 78.6% );
+        color: #fff;
+        font-size: 40px;
+        border-radius: 10px;
+        border: 2px #fff solid;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 10px;
+        overflow: auto;
+      }
+      .notify{
+        background: none;
+        border-radius: 3px;
+
+        position: absolute;
+        z-index: 1000;
+        top:60px;
+        right: 1px;
+        border-left: 8px solid #f48024;
+        padding: 3rem;
+        background: bisque;
+      }
+      .notify>p{
+        color: #000 !important;
+      }
+
     .box{
       width: 500px;
       overflow: hidden;
       background: #343434;
-      box-shadow: 0 0 10px black;
       border-radius: 10px;
       position: absolute;
       top: 50%;
@@ -197,7 +311,9 @@ font-size: 15px;
     }
     .box p{
       color: #fff;
+      width: 340px;
     }
+
     .close{
       font-size: 20px;
       color: #fff;
@@ -206,9 +322,11 @@ font-size: 15px;
       background: #3c96ff;
       display: inline-block;
       border-radius: 4px;
+      width: 280px;
+      margin-bottom: 10px;
     }
     .input_time{
-      font-size: 17px;
+      font-size: 21px;
       background: #343434;
       color: #fff;
       border: 3px solid #e66600;
@@ -222,6 +340,10 @@ font-size: 15px;
       transition: 1.4s;
 
     }
+    #close_id_prec{
+      width: 260px;
+      background: #f48024;
+    }
     select {
       background-color: #343434;
       border: 3px solid #e66600;
@@ -230,6 +352,16 @@ font-size: 15px;
       color: #fff;
       cursor: pointer;
       border-radius: 8px;
+      width: 340px;
+  }
+  #input_name_file_save{
+        text-align: center;
+        margin-top: 60px;
+  }
+  .btou{
+    display: flex;
+    width: max-content;
+    padding: 10px;
   }
   select:after {
   position: absolute;
@@ -247,15 +379,508 @@ font-size: 15px;
 }
 
 
+.src-btn{
+  display: contents !important;
+  color: #fff;
+  font-size: 2.2rem;
+  width: 80px;
+  height: 40px;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  transition: 0.4s;
+  margin: 10;
+}
+.doctb:hover{
+  background: #F69950;
+  box-shadow: none;
 
+}
+  input{
+    display: inline-block !important;
+
+    color: #fff;
+    border: none;
+
+    background: none;
+    font-size: 1.2rem;
+    outline: none;
+    padding: 0;
+    font-size: 1.2rem;
+
+    line-height: 40px;
+    width: 20rem;
+    transition: 1s;
+  }
+  .B-FILHO{
+    background: #343434;
+    color: #fff;
+    width: 70%;
+    border-radius: 10px;
+    position: static;
+    text-align: center;
+    margin-left: 15%;
+    cursor: pointer;
+    margin-top: 5px;
+    padding-top: 10px;
+    margin-bottom: 10px;
+  }
+  .B-FILHO p{
+    padding: 5px;
+  }
+  .B-FILHO i{
+    color: #fff;
+    z-index: 9999;
+    font-size: 10px;
+  }
+
+
+  #close_id_f1{
+    margin-top: 40px;
+    background: #d70060;
+    font-size: 30px;
+  }
+  #close_id_f2{
+
+    background: #00c760;
+    font-size: 30px;
+  }
+  .img-ico{
+    width: 200px;
+    background: #fff;
+    padding: 10px;
+    border-radius: 10px;
+  }
+  .asd{
+    display: table-caption;
+    text-align: center;
+    align-items: center;
+    align-content: center;
+    margin-left: 80px;
+
+  }
+  .busca{
+    color: #fff;
+    top: 0;
+    right: 0;
+    margin-right: 40px;
+    position: absolute;
+    font-size: 40px;
+    margin-top: 15px;
+    cursor: pointer;
+    font-size: 30px;
+  }
+  .zoozk{
+
+    display: flex;
+    align-items: center;
+  }
+  .bbn{
+    color: #fff;
+    top: 0;
+    margin-top: 5px;
+    margin-left: 71%;
+    font-size: 24px;
+  }
+  .Resutados{
+    position: absolute;
+    background: #737373;
+    top: 0;
+    right: 0;
+    margin-top: 50px;
+    width: 30%;
+    height: auto;
+    border-top: 6px #fff solid;
+    border-radius: 0px 0px 0px 20px;
+    z-index: 100;
+    overflow: auto;
+  }
+  .classe_botoes_ketpress{
+    background: #056f92;
+    padding: 30px;
+    border-radius: 30px 30px 0 0;
+    border: 3px #fff solid;
+    display: contents;
+  }
+  .classe_botoes_ketpress button{
+    border-radius: 10px;
+    box-shadow: inset 0 0 50px #000;
+    color: #fff;
+    padding: 9px;
+    margin: 2px;
+  }
+  button:hover{
+    box-shadow: inset 0 0 50px #fff;
+    color: #000;
+  }
+  p{
+    font-size: 1.5em;
+    font-weight: bold;
+    margin: 0;
+    display: block;
+    margin-bottom: 5px;
+  }
+  #wayy>p{
+    margin-top: 0.4rem;
+    background: #555;
+  }
+  #wayy>p:hover{
+
+    background: #885;
+  }
+  .version{
+    font-size: 10px;
+    opacity: 40%;
+    top: 0;
+    right: 0;
+    margin-right: 47%;
+    margin-top: 33px;
+    position: absolute;
+    color: #fff;
+  }
+  #previe{
+    max-width: 280px;
+    max-height: 200px;
+  }
+  .main_classificados{
+    top: 70px;
+    left: 280px;
+    width: 70%;
+    position: absolute;
+    height: auto;
+    margin: 30px;
+    font-size: 30px;
+    background: #252b31;
+    color: #fff;
+    border: 4px solid #f48024;
+    border-radius: 4px;
+    padding: 0.1rem;
+    text-align: center;
+    height: 80%;
+    overflow: auto;
+    z-index: 10;
+  }
+  .classie:hover{
+    background: #454b51;
+  }
+  #log_salvo{
+    font-size: 30px;
+    color: #fff;
+    display: none;
+    margin: 30px;
+    width: auto;
+    position: relative;
+  }
+  .classie{
+    display: flex;
+    align-items: center;
+    user-drag: none;
+user-select: none;
+-moz-user-select: none;
+-webkit-user-drag: none;
+-webkit-user-select: none;
+-ms-user-select: none;
+
+  }
+  .classie>img{
+    border: 2px #fff solid;
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    margin: 10px;
+    user-drag: none;
+user-select: none;
+-moz-user-select: none;
+-webkit-user-drag: none;
+-webkit-user-select: none;
+-ms-user-select: none;
+  }
+  #classifyed{
+        margin: 20px;
+  }
+  #img_lug{
+           top: 2px;
+           left: 270px;
+           display: flex;
+           position: absolute;
+          border: 3px solid #f07923;
+          max-height: 800px;
+          max-width: 80%;
+          margin-bottom: 100px;
+         }
+.documenta{
+  background: #aa111110;
+  display: -webkit-box;
+  position: absolute;
+  top: 60px;
+  left: 0;
+  align-content: center;
+  width: 100%;
+  z-index: 9;
+  height: 95%;
+
+}
+.documenta_mini{
+  background: #f6f7f8;
+  display: -webkit-box;
+  position: absolute;
+  top: 50px;
+  left: 0;
+  align-content: center;
+  width: 100%;
+  height: 5000px;
+  z-index: 80;
+  filter: blur(50);
+  cursor: pointer;
+  opacity: 0.95;
+
+}
+.cellcc{
+  color: #fff;
+   border: 3px solid #f48024;
+   padding: 20px;
+   background: #444444;
+   position: absolute;
+   width: 500px;
+   height: 25px;
+   display: none;
+}
+.documenta_super{
+  background: #343434;
+  display: -webkit-box;
+  position: absolute;
+  top: 50px;
+  left: 0;
+  align-content: center;
+  width: 100%;
+  height: 5000px;
+  z-index: 100;
+  filter: blur(50);
+  cursor: pointer;
+
+}
+#voltar_class{
+  font-size: 20px;
+  position: absolute;
+  top: 70px;
+  z-index: 98909994;
+  left: 50px;
+  background: #252b31;
+  color: #fff;
+  padding: 20px 50px;
+border-radius: 10px;
+border: 2px solid;
+
+}
+#voltar_class_any{
+  font-size: 20px;
+  position: absolute;
+  top: 70px;
+  z-index: 98909994;
+  left: 50px;
+  background: #252b31;
+  color: #fff;
+  padding: 20px 50px;
+border-radius: 10px;
+border: 2px solid;
+
+}
+#p_github{
+  width: auto;
+}
+.execulting{
+color: #000;
+}
+.execulting::after{
+  content: url('https://i.imgur.com/c1Q9Rf7.gif');
+  margin-left: 1rem;
+}
+}
+
+.mouse_posit{
+  height: 30px;
+  background: #f48024;
+  text-align: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 20px;
+}
+.input_precision{
+  font-size: 17px;
+  background: #343434;
+  color: #fff;
+  border: 3px solid #e66600;
+  padding: .3ch 5px;
+  text-align: center;
+  border-radius: 7px;
+  width: 40px;
+  top: 0;
+  left: 0;
+  position: absolute;
+  margin-left: 90px;
+  margin-top: 350px;
+}
+.input_object{
+  font-size: 17px;
+  background: #343434;
+  color: #fff;
+  border: 3px solid #e66600;
+  padding: .3ch 5px;
+  text-align: center;
+  border-radius: 7px;
+  width: 40px;
+  top: 0;
+  left: 0;
+  position: absolute;
+  margin-left: 370px;
+  margin-top: 350px;
+}
+.gif_exec{
+  width: 30px;
+  margin-left: 0.5rem;
+}
+.button_prec{
+  width: 12rem;
+  height: 3rem;
+  background: #f48024;
+  border: 3px #f48024 solid;
+  color: #fff;
+  font-size: 25px;
+  border-radius: 3px;
+  cursor: pointer;
+  margin-top: 2px;
+}
+.play_exec_end{
+  font-size: 15px;
+color: #000;
+padding: 10px;
+}
+.play_exec_end::after{
+  content: "▶";
+
+  padding: 1rem;
+}
+.play_exec_end:hover::after{
+
+  box-shadow: 0px 0px 0px 2px #000 inset;
+  background: #f48024;
+
+  border-radius: 0.3rem;
+}
+.button_prec:hover{
+  background: #fff;
+  color: #000;
+  border: 3px solid #fff
+}
+.check_bbox{
+  font-size: 26px;
+  -webkit-transition: 1.4s;
+  transition: 1.4s;
+
+}
+
+.img-zoom-lens {
+  position: absolute;
+  border: 3px solid #ef2222;
+  width: 10px;
+  height: 10px;
+}
+
+.div_img_display{
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10000;
+  margin-top: 25%;
+  margin-left: 35%;
+  transform: translate(-50%,-50%);
+
+}
+.div_img_display p{
+  font-size: 40px;
+}
+#wayy{
+  word-break:break-all;
+  background: #111;
+
+}
     </style>
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <script type="text/javascript" src="/eel.js"></script>
     <script>
+
+
+    var estacommais = 0;
+    var valorfixo = "";
+    var logger = 0;
+    function startget() {
+      console.log("Liga o logger");
+      $("#button_start").css("filter","brightness(0.4)");
+      $("#button_stop").css("filter","none");
+      logger = 1;
+    }
+
+    function stopget(){
+      console.log("Desliga o logger");
+      $("#button_stop").css("filter","brightness(0.4)");
+      $("#button_start").css("filter","none");
+      logger = 0;
+    }
+    function putplus() {
+      setkey_to_python.push("+")
+      document.getElementById('info').innerHTML = document.getElementById('info').innerHTML+" + ";
+      estacommais = 1;
+      valorfixo = document.getElementById('info').innerHTML;
+    }
+    function wipedata_console_keypress() {
+      document.getElementById('info').innerHTML = "";
+      setkey_to_python = [];
+      estacommais = 0;
+      valorfixo = "";
+      //logger = 0;
+    }
+    var setkey_to_python = [];
+    window.addEventListener('keydown', (e) => {
+      if (e.keyCode == 9 && document.activeElement === $("#console_box")[0]) {
+        console.log("you press tab");
+        e.preventDefault();
+        var s = $("#console_box")[0].selectionStart;
+        var end = $("#console_box")[0].selectionEnd;
+        $("#console_box")[0].value = $("#console_box")[0].value.substring(0,s) + "    " + $("#console_box")[0].value.substring(end);
+        console.log(s);
+        //this.value = this.value.substring(0,this.selectionStart) + "\t" + this.value.substring(this.selectionEnd);
+
+        //this.selectionEnd = s+1;
+
+        //return false;
+      }
+      if (logger == 1 && e.keyCode != 255) {
+
+
+        //console.log("estou execultando");
+        const {key, keyCode, code} = e;
+        console.log(key+keyCode+code);
+
+        var show_keypress_content = document.getElementById('info');
+        //setkey_to_python.push(show_keypress_content);
+        if (estacommais == 0) {show_keypress_content.innerHTML = valorfixo+key}
+        else {show_keypress_content.innerHTML = show_keypress_content.innerHTML+key;estacommais = 0}
+        //setkey_to_python = [];
+      }
+
+    //console.log(key);
+      //var bbn_new = document.getElementById('info').value;
+
+      //if (estacommais == 0) {console.log("vou add"+valorfixo+key);bbn_new = valorfixo+key;}
+      //else {bbn_new = bbn_new+key;estacommais = 0}
+      });
+
       function  show_menu(){
         $('#id_top_bar').css('opacity',0.6)
         //$('.container2').css('opacity', 0.4);
         $('#id_top_bar2').css('display',"inline")
+        $('#id_top_bar2').css('z-index', '98909995')
       }
       function click_out() {
         hide_menu();
@@ -264,37 +889,123 @@ font-size: 15px;
         $('#id_top_bar').css('opacity',1)
         //$('.container2').css('opacity', 1);
         $('#id_top_bar2').css('display',"none")
+        $('.Resutados').css('display','none')
       }
+
       function insert_console(type_format) {
         if (type_format == "img"){
           //OS IMPORTES SAO FEITOS AQUI
-          var template = "import time\nimport base64\nfrom desktopmagic.screengrab_win32 import (getDisplayRects, saveScreenToBmp, saveRectToBmp, getScreenAsImage,getRectAsImage, getDisplaysAsImages)\nimport cv2\nimport numpy as np\nimport pyautogui\nimport random\nimport platform\nimport subprocess"
-          
+          var template = "import time\nimport base64\nimport cv2\nimport pyautogui\nimport random\nimport platform\nimport subprocess"
+
           var ja_importados = $('#console_box').val().includes(template)
           if (ja_importados != true){
             insert_text_in_line(template,1)
-            insert_text_in_line("def imagesearch_count(image, precision=0.9):\n    img_rgb = getScreenAsImage()\n    img_rgb = np.array(img_rgb)\n    img_gray = cv2.cvtColor(img_rgb, cv2.COLOR_BGR2GRAY)\n    template = cv2.imread(image, 0)\n    w, h = template.shape[::-1]\n    res = cv2.matchTemplate(img_gray, template, cv2.TM_CCOEFF_NORMED)\n    loc = np.where(res >= precision)\n    count = 0\n    guarda_posicaoes = []\n    for pt in zip(*loc[::-1]):\n        cv2.rectangle(img_rgb, pt, (pt[0] + w, pt[1] + h), (0, 0, 255), 2)\n        if pt not in guarda_posicaoes:\n        	guarda_posicaoes.append(pt)\n        count = count + 1\n    cv2.imwrite('result.png', img_rgb)\n    return count,guarda_posicaoes",100);
+            insert_text_in_line("def imagesearch_count(image, precision=0.9):\n    from desktopmagic.screengrab_win32 import getScreenAsImage\n    import numpy as np\n    import cv2\n    img_rgb = getScreenAsImage()\n    img_rgb = np.array(img_rgb)\n    img_gray = cv2.cvtColor(img_rgb, cv2.COLOR_BGR2GRAY)\n    template = cv2.imread(image, 0)\n    w, h = template.shape[::-1]\n    res = cv2.matchTemplate(img_gray, template, cv2.TM_CCOEFF_NORMED)\n    loc = np.where(res >= precision)\n    count = 0\n    guarda_posicaoes = []\n    for pt in zip(*loc[::-1]):\n        cv2.rectangle(img_rgb, pt, (pt[0] + w, pt[1] + h), (0, 0, 255), 2)\n        if pt not in guarda_posicaoes:\n         guarda_posicaoes.append(pt)\n        count = count + 1\n    cv2.imwrite('result.png', img_rgb)\n    return count,guarda_posicaoes",100);
           }
           insert_text_in_line($('#data1').val(),100)
           open_img();
         //$('#console_box').append($('#data1').val())
-      }else {
-        console.log("Erro file type not expected")
+      }else if (type_format == "keypress") {
+        //setkey_to_python.push(key);
+        setkey_to_python.push($('#info')[0].innerHTML);
+
+        if ($('#console_box').val().includes("import pyautogui")) {}
+        else {insert_text_in_line("import pyautogui",1)};
+
+
+        for (var i = 0; i < setkey_to_python.length; i++) {
+          setkey_to_python[i] = setkey_to_python[i].toLowerCase()
+          setkey_to_python[i] = setkey_to_python[i].split("meta").join("win");
+          setkey_to_python[i] = setkey_to_python[i].split(" ").join("'");
+          //setkey_to_python[i] = setkey_to_python[i].split("+").join(",");
+        }
+
+        /*if (setkey_to_python.includes("+")) {
+          var du = setkey_to_python.length-1;
+          console.log(du);
+          setkey_to_python[du] = setkey_to_python[du].split("+").join(",");
+          //setkey_to_python = setkey_to_python.pop(0)
+          console.log("eh hot key");
+          console.log(setkey_to_python);
+          var separar = [];
+          for (var i = 0; i < setkey_to_python.length; i++) {
+            if (setkey_to_python[i] != "+" ) {
+              separar.push("'"+setkey_to_python[i]+"'");
+            }
+          }
+          insert_text_in_line("pyautogui.hotkey("+separar+")",100);
+        }*/
+
+        if (setkey_to_python[0].includes("+")) {
+          var du = setkey_to_python.length-1;
+          //console.log(du);
+          setkey_to_python[du] = setkey_to_python[du].split("+").join(",");
+          //setkey_to_python = setkey_to_python.pop(0)
+          console.log("eh hot key");
+          console.log(setkey_to_python);
+          var separar = [];
+          for (var i = 0; i < setkey_to_python.length; i++) {
+            if (setkey_to_python[i] != "+" ) {
+              separar.push("'"+setkey_to_python[i]+"'");
+            }
+          }
+          insert_text_in_line("pyautogui.hotkey("+separar+")",100);
+        }else {
+          console.log(setkey_to_python);
+          insert_text_in_line("pyautogui.press('"+setkey_to_python+"')",100);
+        }
+        //limpa o buffer
+        setkey_to_python=[]}
+      else if (type_format == "text"){
+        console.log("file text");
+        //var conts = get_content_from_internet("https://raw.githubusercontent.com/Rayjay-8/fronter/master/datack.py");
+        //console.log(conts);
+      }else return console.log("Erro file type not expected")
       }
-      }
-      function insert_text_in_line(text,nline) {
-        let ta = $("#console_box").val(),
+
+
+
+      function insert_text_in_line(text,nline="100000",replace_line=false,word_replace="",text_area="#console_box",pula_linha=false) {
+        let ta = $(text_area).val(),
         split_text = ta.split("\n");
-        if (nline <= split_text.length - 1) split_text.splice(nline - 1, 0, text);
-        else split_text.push(text);
-      $("#console_box").val(split_text.join("\n"));
+
+
+
+        //console.log(split_text);
+        if (replace_line) {
+          //exemplo de replace ==> insert_text_in_line("123",1,true,"google")
+          console.log("entrou");
+          var split_text2 = split_text.map(function(item) { return item == text ? word_replace : item; });
+          $(text_area).val(split_text2.join("\n"));
+        }else {
+          console.log("saiu");
+          if (nline <= split_text.length - 1) split_text.splice(nline - 1, 0, text);
+          else split_text.push(text);
+          if (pula_linha) {
+            console.log("nao vai pular linha");
+            $(text_area).val(split_text.join(""));
+            //console.log(split_text.join(","));
+          }else {
+
+            $(text_area).val(split_text.join("\n"));
+          }
+
+        }
+
       }
+
+
+
       function show_img_src(){
         for (var i = 0; i < lista_dados_img.length; i++) {
           console.log(lista_dados_img[i]);
         }
         return lista_dados_img;
       }
+
+
+
+
       const lista_dados_img = [];
       function open_img() {
         var fonte_img = $('#previe').attr('src');
@@ -306,16 +1017,20 @@ font-size: 15px;
         insert_text_in_line("filename = 'img0"+lenlen+".png'",100);
         insert_text_in_line("with open(filename, 'wb') as f:",100);
         insert_text_in_line("    f.write(imgdata)",100);
-        insert_text_in_line(" ",100);
-        insert_text_in_line("resu = imagesearch_count(filename,precision=0.99)",100);
-        insert_text_in_line(" ",100);
+        insert_text_in_line("resu = imagesearch_count(filename,precision=0.90)",100);
         insert_text_in_line("print(resu)",100);
-        insert_text_in_line('input(f"Identificados {resu[0]} resultados continuar?")',100);
-        insert_text_in_line("ll = list((cv2.imread(filename)).shape[0:2])",100);
-        insert_text_in_line("meiox, meioy = ll[0]/2, ll[1]/2",100);
-        insert_text_in_line("for i in resu[1]:",100);
-        insert_text_in_line("    ii = list(i)",100);
-        insert_text_in_line("    pyautogui.click(ii[0]+meiox,ii[1]+meioy)",100);
+        //insert_text_in_line('input(f"Identificados {resu[0]} resultados continuar?")',100);
+        insert_text_in_line("meiox, meioy = "+LIST_LOCAL_CLIKCK[1]+", "+LIST_LOCAL_CLIKCK[0],100);
+        insert_text_in_line("def func"+lenlen+"():",100);
+        insert_text_in_line("    for i in resu[1]:",100);
+        insert_text_in_line("        ii = list(i)",100);
+        insert_text_in_line("        pyautogui.click(ii[0]+meiox,ii[1]+meioy)",100);
+        insert_text_in_line("func"+lenlen+"()",100);
+        //exemplo replace def funcions
+        //insert_text_in_line("def func-1():",1,true,"def new--func-1():")
+        //insert_text_in_line("def func"+lenlen+"()",1,false,"","#wayy");
+        //Adicionar reports
+        //$("#wayy").append("<p>def func"+lenlen+"()<br/></p>")
       }
       function previewFile(){
 
@@ -341,24 +1056,67 @@ font-size: 15px;
         console.log(retorno);
       }
       function pop(opc){
-        $('.container2').css('opacity', 0.4);
+        //$('.container2').css('opacity', 0.4);
+
+        $('.documenta_mini').css('display','block');
+        $('body').css('overflow','hidden');
+        //document.body.scrollTop = 0;
+        //document.documentElement.scrollTop = 0;
         if (opc == "opc3") {
           $('#box3').css('display','block');
+          $('#box3').css('position', 'fixed');
         }else if (opc == "opc1") {
           console.log("opca 001");
           $('#box1').css('display','block');
+          $('#box1').css('position', 'fixed');
+        }
+        else if (opc == "opc4") {
+          console.log("opca 004");
+          $('#box4').css('display','block');
+          $('#box4').css('position', 'fixed');
+
         }
         else {
           $('#box2').css('display','block');
+          $('#box2').css('position', 'fixed');
         }
 
 
       }
       function closee(){
+        $('body').css('overflow','auto');
+        $(".documenta_super").css("display","none")
+        $('.documenta_mini').css('display','none');
+        $("#voltar_class_any").css("display","none")
+        $("#myimage").remove();
+        $(".img-zoom-lens").remove();
         $('.container2').css('opacity', 1);
         $('.box').css('display','none');
         $('.box2').css('display','none');
         $('.box1').css('display','none');
+        $('#log_salvo').css('display','none');
+      }
+
+      function getGit_post(filename,codigo) {
+        //essa funcao simplesmente salva no github
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "https://datack.herokuapp.com/gitsave?namefile="+filename, true);
+        //xhr.open("POST", "https://datack.herokuapp.com/gitsave?namefile="+filename, true);
+        xhr.setRequestHeader('Content-Type', 'plain/text');
+        xhr.send(codigo);
+        //testar essa linha
+        xhr.onreadystatechange = function () {if (xhr.readyState == XMLHttpRequest.DONE) {
+
+          if (xhr.status == 200) {
+            $('#log_salvo')[0].textContent = "Salvo com Sucesso !!!"
+            log_if_salvo()
+            notify_msg("👍  Enviado para a fila ");
+            eel.send(filename+".py","1/10");
+          }else {
+            $('#log_salvo')[0].textContent = "Nome ja existe !!!"
+            log_if_salvo()
+          }
+        }}
       }
       function runn(c){
         console.log(c);
@@ -371,8 +1129,8 @@ font-size: 15px;
           //$('.check_bbox').css('background',"#000")
           $('.check_bbox').removeClass("fa fa-square");
           $('.check_bbox').addClass("fa fa-check-square")
-          $('.check_bbox').css('color','rgb(106, 226, 106)')
-          $('.check_bbox').css('background','#343434')
+          $('.check_bbox').css('color','rgb(244,128,36)')
+          $('.check_bbox').css('background','#343434,'),
 
           cli = 1;
         }else {
@@ -384,6 +1142,146 @@ font-size: 15px;
           cli = 0;
         }
       }
+
+
+
+      function SEARCH(data,word) {
+        console.log(data);
+        console.log(word);
+        var ddd = String(data).toLocaleLowerCase().startsWith(word.toLocaleLowerCase())
+        return ddd
+
+      }
+      function set_retorno_on_console(ret) {
+        console.log("depois");
+        //console.log(ret);
+        //var dado_deco = window.atob(ret)
+        var dado_deco = ret
+        //$("#console_box")[0].value =""
+        insert_text_in_line(dado_deco,100);
+        console.log("okok");
+
+
+      }
+      function RequestGit_exec(url) {
+                const URL_TO_FETCH = url; fetch(URL_TO_FETCH, {})
+                .then(function(response) {
+                response.text()
+                .then(function(result){
+
+                  console.log(result);
+                  runrun(result);
+
+
+
+                })
+              })
+              .catch(function(err) { console.log("00z"); });
+                }
+      function RequestGit_return(url) {
+                const URL_TO_FETCH = url; fetch(URL_TO_FETCH, {})
+                .then(function(response) {
+                response.text()
+                .then(function(result){
+
+                  console.log(result);
+                  organiza_endpoint(result)
+
+
+                })
+              })
+              .catch(function(err) { console.log("00z"); });
+                }
+      function RequestGit(url) {
+                const URL_TO_FETCH = url; fetch(URL_TO_FETCH, {})
+                .then(function(response) {
+                response.text()
+                .then(function(result){
+
+
+                  insert_text_in_line(result,1)
+                })
+              })
+              .catch(function(err) { console.log("00z"); });
+                }
+
+      async function get_data_from_file(idd) {
+        console.log("LOG "+idd);
+
+        idd2 = idd.replaceAll("@@@@@"," ")
+
+
+        //var dados_file_v = await eel.get_filecontent_by_api_return_the_content(idd)(set_retorno_on_console);
+        RequestGit('https://datack.herokuapp.com/gitraw?config='+idd2)
+
+        //insert_console("text");
+
+
+      }
+      function get_content_from_internet(url) {
+        var contents;
+        //implementar funcao ainda nao existe
+        contents = eel.get_content(url);
+        return contents;
+      }
+
+      var ja_fez_fatch = 1;
+      var lista_dos_nomes_arquivos_github = "";
+
+      function faz_fetch_e_garda_resultados() {
+        ja_fez_fatch = 0;
+        console.log("COLETANDO OS DADOS DO REPOSITORIO");
+
+        var url = "https://api.github.com/repos/Rayjay-8/api-scripts/contents/"
+
+
+        fetch(url).then(response => {
+          response.json().then(data =>{
+            lista_dos_nomes_arquivos_github = data;})});}
+        function get_files2() {
+          $(".B-FILHO").remove();
+
+          //$(".Resutados").css("height",tamanho+"px")
+          if (ja_fez_fatch == 1) {faz_fetch_e_garda_resultados();}
+          var word = $('.bbn')[0].value
+          var filter = word.toUpperCase();
+
+
+          if (lista_dos_nomes_arquivos_github != "") {
+
+              for (var i = 0; i < lista_dos_nomes_arquivos_github.length; i++) {
+                var ppp = SEARCH(lista_dos_nomes_arquivos_github[i].name,filter);
+                if(ppp){
+
+                  //correcao id com espaco no nome
+                  var goodid = lista_dos_nomes_arquivos_github[i].name
+                  goodid = goodid.replaceAll(" ","@@@@@")
+                  var good_name = lista_dos_nomes_arquivos_github[i].name.split("--")
+                  $(".bloco").append('<div class="B-FILHO"><p id='+goodid+' onclick="get_data_from_file(this.id)">'+good_name[0]+'</p><i id="codfont" style=display:block>'+lista_dos_nomes_arquivos_github[i].download_url+'</i></div>')
+                  //achou_algo = true;
+                  //var tamanho = $(".B-FILHO").length;
+
+
+                }
+
+                //$(".bloco").append('<button>'+data[i].name+'</button>')
+                //console.log(data[i]);
+
+              }console.log($(".B-FILHO").length);
+              if ($(".B-FILHO").length < 4) {var tamanho = $(".B-FILHO").length * 80;$(".Resutados").css("height",tamanho+"px");}
+              else if ($(".B-FILHO").length > 5) {$(".Resutados").css("height","400px");}
+
+          }
+
+
+
+
+          //var dataa = $.getJSON("https://api.github.com/repos/Rayjay-8/api-scripts/contents/", function(data) {});
+          //var url = "https://api.github.com/repos/Rayjay-8/api-scripts/contents/"
+
+
+
+  }
       function get_files() {
         //var dataa = $.getJSON("https://api.github.com/repos/Rayjay-8/api-scripts/contents/", function(data) {});
         var url = "https://api.github.com/repos/Rayjay-8/api-scripts/contents/"
@@ -398,43 +1296,458 @@ font-size: 15px;
           })
         });
 }
+    var i = 0;
+    function show_console() {
+      $('#console_box').fadeToggle("slow");
+      //if (i == 0) {$('#console_box').slideUp("slow");i=1}
+      //else {$('#console_box').slideDown("slow");i=0}
 
+      }
+    function log_if_salvo() {
+
+      $("#log_salvo").css("display","inline-block")
+    }
+
+
+    function saveongit() {
+      var dados_console = $('#console_box').val();
+      var file_nam = $('#input_name_file_save').val();
+      if (dados_console != ""){
+        getGit_post(file_nam,dados_console)
+
+        //eel.teste00(dados_console,file_nam+"--id="+Math.floor(Math.random()*10000)+".py")(save_on_g_ok);
+      }else {
+        console.log("o console esta vazio nao pode estar salvo");
+        $('#log_salvo')[0].textContent = "Console vazio nao pode ser salvo!!!"
+        $('#log_salvo').toggle()
+      }
+
+    }
+
+    function run_code_in_python() {
+      var code = $('#console_box').val();
+      eel.run_code(code);
+      console.log("rodandado codigo");
+    }
+
+
+    function show_results() {
+      $('.Resutados').css('display','block')
+    }
+    var LIST_LOCAL_CLIKCK = [0,0];
+    function clicker_get() {
+      console.log("clieee");
+
+      function float2int (value) {return value | 0;}
+      var TOP = float2int(($(".img-zoom-lens")[0].offsetTop/2)+4);
+      var LEFT = float2int(($(".img-zoom-lens")[0].offsetLeft/2)+4);
+      LIST_LOCAL_CLIKCK = [TOP,LEFT]
+      console.log(LIST_LOCAL_CLIKCK);
+      //console.log($("#myimage").offset().top-79.875);
+      console.log($("#myimage")[0].naturalHeight);
+      console.log($("#myimage")[0].naturalWidth);
+
+      $(".mouse_posit").html("X: "+LEFT+" Y: "+TOP)
+      $(".documenta_super").css("display","none")
+      $("#myimage").remove();
+      $(".img-zoom-lens").remove();
+    }
+    function show_img_end_get_position() {
+      $(".documenta_super").css("display","-webkit-box")
+
+      $("#voltar_class_any").css("display","block")
+      $(".div_img_display").css("display","block")
+      $(".show_imger").css("display","block");
+      $(".mouse_posit").css("display","block")
+
+      //var img_path = "teste.png";
+      var img_path = $('#previe').attr('src');
+      var sourc = `
+      <div class="img-zoom-container" onclick="clicker_get()">
+      <img draggable="false" id="myimage" src=`+img_path+` width="200%" height="200%" >
+      </div>`
+      //$("body").html(sourc);
+      $(".div_img_display").html(sourc);
+      imageZoom("myimage", "myresult");
+
+    }
+    function download_input(){
+      console.log("downloading...");
+    var dados = document.getElementById("console_box").value
+    if (dados=="") {console.log("console vazio");}
+    else {
+      var blob = new Blob([dados], { type: 'text/plain' }),
+          anchor = document.createElement('a');
+      var namefile = window.performance && window.performance.now && window.performance.timing && window.performance.timing.navigationStart ? window.performance.now() + window.performance.timing.navigationStart : Date.now();
+      anchor.download = namefile+".py"
+
+      anchor.href = (window.webkitURL || window.URL).createObjectURL(blob);
+      anchor.dataset.downloadurl = ['text/plain', anchor.download, anchor.href].join(':');
+      anchor.click();
+    }
+
+    }
+    function test_similarity() {
+      var objects = $(".input_object")[0].value
+      console.log("teste");
+      //console.log(objects);
+      var code = "import time\nimport base64\nfrom desktopmagic.screengrab_win32 import (getDisplayRects, saveScreenToBmp, saveRectToBmp, getScreenAsImage,getRectAsImage, getDisplaysAsImages)\nimport cv2\nimport numpy as np\nimport pyautogui\nimport random\nimport platform\nimport subprocess\ndef imagesearch_count(image, precision=0.9):\n    from desktopmagic.screengrab_win32 import getScreenAsImage\n    import numpy as np\n    import cv2\n    img_rgb = getScreenAsImage()\n    img_rgb = np.array(img_rgb)\n    img_gray = cv2.cvtColor(img_rgb, cv2.COLOR_BGR2GRAY)\n    template = cv2.imread(image, 0)\n    w, h = template.shape[::-1]\n    res = cv2.matchTemplate(img_gray, template, cv2.TM_CCOEFF_NORMED)\n    loc = np.where(res >= precision)\n    count = 0\n    guarda_posicaoes = []\n    for pt in zip(*loc[::-1]):\n        cv2.rectangle(img_rgb, pt, (pt[0] + w, pt[1] + h), (0, 0, 255), 2)\n        if pt not in guarda_posicaoes:\n          guarda_posicaoes.append(pt)\n        count = count + 1\n    cv2.imwrite('result.png', img_rgb)\n    return count,guarda_posicaoes"
+      //eel.run_code(code);
+      var fonte_img = $('#previe').attr('src');
+      var code = code+"\nimgdata  = base64.b64decode('"+fonte_img.split(",")[1]+"')"
+      var code = code+"\nwith open('filename.png', 'wb') as f:"
+      var code = code+"\n    f.write(imgdata)"
+      //var code = code+'\ndef run():'
+      var code = code+"\nresu = imagesearch_count('filename.png',precision=0.90)"
+      //var code = code+'\ninput(f"Identificados {resu[0]} resultados continuar?")'
+      //var code = code+'\n    return resu[0]'
+      //var code = code+'\nprint(resu[0])'
+      //var code = code+'\nprint(resu[1])'
+      var code = code+'\nfor i in resu[1]:'
+      var code = code+'\n    ii = list(i)'
+      var code = code+'\n    pyautogui.click(ii[0],ii[1])'
+      //var code = code+'\nprint(resu[0])'
+      eel.run_code(code)(function(ret){console.log(ret)});
+      //insert_text_in_line(code)
+      console.log(code);
+
+    }
     </script>
+
+
+
+
+
+    <script>
+
+function imageZoom(imgID, resultID) {
+  var img, lens, result, cx, cy;
+  img = document.getElementById(imgID);
+  lens = document.createElement("DIV");
+  lens.setAttribute("class", "img-zoom-lens");
+  img.parentElement.insertBefore(lens, img);
+
+  lens.addEventListener("mousemove", moveLens);
+  img.addEventListener("mousemove", moveLens);
+
+  lens.addEventListener("touchmove", moveLens);
+  img.addEventListener("touchmove", moveLens);
+  lens.style.left = (LIST_LOCAL_CLIKCK[1]*2)-8 + "px";
+  lens.style.top = (LIST_LOCAL_CLIKCK[0]*2)-8 + "px";
+  function moveLens(e) {
+    console.log("mexeu");
+    var pos, x, y;
+    e.preventDefault();
+    pos = getCursorPos(e);
+
+    x = pos.x - (lens.offsetWidth / 2);
+    y = pos.y - (lens.offsetHeight / 2);
+    if (x > img.width - lens.offsetWidth) {x = img.width - lens.offsetWidth;}
+    if (x < 0) {x = 0;}
+     if (y > img.height - lens.offsetHeight) {y = img.height - lens.offsetHeight;}
+     if (y < 0) {y = 0;}
+    /*set the position of the lens:*/
+    lens.style.left = x + "px";
+    lens.style.top = y + "px";
+  }
+  function getCursorPos(e) {
+    var a, x = 0, y = 0;
+    e = e || window.event;
+    /*get the x and y positions of the image:*/
+    a = img.getBoundingClientRect();
+    /*calculate the cursor's x and y coordinates, relative to the image:*/
+    x = e.pageX - a.left;
+    y = e.pageY - a.top;
+    /*consider any page scrolling:*/
+    x = x - window.pageXOffset;
+    y = y - window.pageYOffset;
+    return {x : x, y : y};
+  }
+  }
+  function update_name_defs() {
+    var content_mini = $('#miniconsole').val()
+    var lista_cont = content_mini.split("\n")
+    insert_text_in_line("Lista = [");
+    for (var i = 0; i < lista_cont.length; i++) {
+      if (i == lista_cont.length-1) {
+        insert_text_in_line('"'+lista_cont[i]+'"]');
+        insert_text_in_line("for i in Lista:")
+        insert_text_in_line("    pyautogui.write(i)")
+      }else {
+        insert_text_in_line('"'+lista_cont[i]+'",');
+      }
+
+
+      //text,nline="100000",replace_line=false,word_replace="",text_area="#console_box",pula_linha=false
+    }
+  }
+  function classificados() {
+    console.log("open classificados");
+    $(".container2").css("filter","blur(50px)")
+    $(".classificados").css("display","block")
+    $(".documenta").css("display","-webkit-box")
+    //$(".documenta_super").css("display","-webkit-box")
+    //$(".documenta").css("display","none")
+    $(".main_classificados").css('filter','blur(0px)');
+    click_out()
+  }
+
+  function choose_file() {
+    const defaultBtn = document.querySelector("#default-btn");
+    defaultBtn.click();
+
+  }
+  //const defaultBtn = document.querySelector("#default-btn");
+  var sendimg = false;
+
+  function upando() {
+    console.log("oloko");
+    //var file = defaultBtn.files[0];
+    //console.log(file);
+    const preview = document.querySelector("#img_upup");
+    var file    = document.querySelector('#default-btn').files[0];
+    if (file) {
+        var reader  = new FileReader();
+        reader.onloadend = function () {
+        preview.src = reader.result;}
+        reader.readAsDataURL(file);
+        sendimg = true;
+
+
+    }}
+function clomemek() {
+  $(".container2").css("filter","blur(0px)")
+
+  $(".classificados").css("display","none")
+
+}
+
+function replaceey(src) {
+  //$('#img_upup')[0].src = src;
+  console.log(src);
+  //var TOP = $("#img_upup")[0].offsetTop;
+  //var LEFT = $("#img_upup")[0].offsetLeft;
+  //clieee
+  //console.log(event);
+  //console.log(TOP);
+  //console.log(LEFT);
+
+}
+async function analisy() {
+  if (sendimg) {
+    console.log("start analyse");
+    var dado = document.querySelector("#img_upup").src
+    //var dados_file = await eel.get_filecontent_by_api_return_the_content(idd)(set_retorno_on_console);
+    var con = await eel.salva_img(dado)(replaceey);
+  }
+}
+
+function evnid(url,ARGS) {
+          const URL_TO_FETCH = url; fetch(URL_TO_FETCH, {})
+          .then(function(response) {
+          response.text()
+          .then(function(result){
+
+            console.log("fetch ok!!");
+            //console.log(result);
+
+            if (ARGS=="setimg") {
+              console.log("settig img");
+              $("#imgid")[0].src = result;
+            }else {
+              var datavv = JSON.parse(result)
+              onloaaa(datavv)
+              console.log(datavv);
+            }
+          })
+        })
+        .catch(function(err) { console.log("00z"); });
+          }
+var lista_dos_nomes_arquivos = ""
+var ja_fez_fatch = 1;
+$(".classificados").ready(function () {
+
+  console.log( "ready!" );
+  //url = "https://api.github.com/repos/Rayjay-8/api-scripts/contents/Classificados.json"
+  //fetch(url).then(response => {
+    //response.json().then(data =>{
+      //lista_dos_nomes_arquivos = data;console.log(lista_dos_nomes_arquivos.download_url)})});
+
+
+  //evnid("http://127.0.0.1:5000/config")
+  evnid("https://datack.herokuapp.com/gitraw?config=datack-links")
+
+  //console.log("erro xxy");
+
+})
+function onloaaa(datavv) {
+  for (var i = 0; i < datavv.length; i++) {
+    console.log("linba");
+    console.log(datavv[i]);
+    //templete01 = '<div class="classie" id="iddoc'+datavv[i].ID+'" onclick="show_finb(this)"><a target="_blank" rel="noopener noreferrer" href='+datavv[i].LINK+'>Link</a><img src="0206.jpg" alt=""><h2 id="classifyed">'+datavv[i].Nome+'<br></div>'
+    templete01 = '<a target="_blank" rel="noopener noreferrer" href='+datavv[i].LINK+'><div class="classie" id="iddoc'+datavv[i].ID+'"><img src="https://i.gifer.com/Ocko.gif" alt=""><h2 id="classifyed">'+datavv[i].Nome+'<br></div></a>'
+    $(".main_classificados").append(templete01)
+  }
+  $(".classie").append("&#127754;")
+  //console.log(datavv[i].ID);
+  //evnid('http://localhost:5001/imgs?namy='+datavv[i].ID,"setimg")
+}
+
+function show_finb(thisv) {
+  $(".documenta").css("display","-webkit-box")
+  $(".main_classificados").css('filter','blur(50px)');
+  console.log(thisv.id);
+  var aarr = thisv.id
+  aavv = String(aarr).replace("iddoc","");
+  evnid('http://localhost:5001/imgs?namy='+aavv,"setimg")
+  click_out()
+  show_console()
+}
+function antishow() {
+  $(".documenta").css("display","none")
+  $(".main_classificados").css('filter','blur(0)');
+  clomemek()
+  //click_out()
+  //show_console()
+}
+function organiza_endpoint(jsons) {
+
+  var aaaa = JSON.parse(jsons)
+  for (var i = 0; i < aaaa['Execultando'].length; i++) {
+    var dd = aaaa['Execultando'][i]
+
+    var tamplate = "<div class='row'> <div class='cell' data-title='Full Name'>"+i+"</div>"
+    var tamplate2 = "<div class='cell' data-title='Age'>"+dd['Resultado']+"</div>"
+    var tamplate3 = "<div class='cell' data-title='Job Title'>"+dd['nome']+"</div>"
+    var tamplate4 = "<div class='cell' data-title='Location'>"+dd['Descrição']+"</div>"
+    var tamplate5 = "<div class='cell' data-title='duracao'>"+dd['Duração']+"</div></div>"
+
+    if (dd['Resultado'] == "Execultando") {
+      //url = "http://icon-park.com/imagefiles/loading7_dark_green.gif"
+      //var ttt = "<img class='gif_exec' src='"+url+"'>"
+      tamplate2 = "<div class='cell execulting' data-title='Age'><div class='zoozk'>"+dd['Resultado']+"</div></div>"
+      koko = "<div class='cellcc'>Execucoes</div>"
+      $(".table").append(koko)
+    }else if (dd['Resultado'] == "Fazer" || dd['Resultado'] == "Finalizado") {
+
+      tamplate2 = "<div onClick=excultar('"+dd['source']+"') class='cell play_exec_end' data-title='Age'><div class='zoozk' >"+dd['Resultado']+"</div></div>"
+    }
+    $(".table").append(tamplate+tamplate2+tamplate3+tamplate4+tamplate5)
+
+    console.log(dd);
+  }
+
+}
+function runrun(code){
+  eel.run_code(code);
+}
+function excultar(src) {
+  console.log(src);
+  var vbase= "https://datack.herokuapp.com/gitraw?config="+src
+  notify_msg(" EXECULTANDO...")
+  //https://datack.herokuapp.com/gitraw?config=
+  RequestGit_exec(vbase)
+  eel.send(src,"Completo");
+}
+function endpoint() {
+  //$('.documenta_mini').css('display','block');
+  $('.minhas_tasks').css('display','block');
+  //$('body').css('overflow','hidden');
+  hide_menu()
+  RequestGit_return("https://jsonblob.com/api/jsonBlob/60d946db-0a9c-11eb-af5c-57272dc9e1cc")
+  //RequestGit_return("https://jsonblob.com/api/jsonBlob/c843ab0c-0891-11eb-a3c1-d5049796aea2")
+}
+function notify_msg(msg){
+  $(".notify").remove()
+  console.log("meg");
+  tample = "<div class='notify animate__animated animate__shakeX' ></div>"
+  $(".top_bar").append(tample)
+  $(".notify")[0].innerHTML = "<p>"+msg+"</p>"
+  setTimeout(
+  function()
+  {
+    $(".notify").fadeOut(1000)
+
+  }, 3000);
+  //$(".notify").fadeOut(5000)
+}
+function Send_fila() {
+  pop("opc4");
+
+
+
+}
+function carregaimg() {
+            console.log("carregou");
+            var preview = document.getElementById("imgid")
+            var file    = document.getElementById('urlid').files[0];
+            var reader  = new FileReader();
+            if (file.size > 0) {
+               reader.onloadend = function () {
+                preview.src = reader.result;}
+              reader.readAsDataURL(file);
+            }
+            }
+</script>
+
+
+
   </head>
   <body>
 
 
+
+
+
     <div class="top_bar" id="id_top_bar">
+
+      <div class="seach_box">
+        <input  class="bbn" onclick="show_results()" onkeyup="get_files2()" wrap="off" autofocus="off" autocapitalize="off" spellcheck="false" style="position: absolute;" type="text" placeholder="Procurar script" value="">
+
+      </div>
+      <div class="Resutados" style="overflow: auto;">
+        <div class="bloco">
+        </div>
+
+      </div>
+      <span class="version">v3.1.7</span>
       <p>
-        	&#9889DataCk&#9889;
+          &#9889DataCk&#9889;
         <div class="icone_menu">
           <i class="fa fa-bars exemplo001" onclick="show_menu()"></i>
         </div>
+
       </p>
     </div>
 
     <div class="top_bar2" id="id_top_bar2">
         <div class="icone_menu">
           <i class="fa fa-bars exemplo002" onclick="hide_menu()"></i>
-          <a class="gb_pc" href="busca.html">
-            <span class="gb_tc" >
+          <a class="gb_pc">
+            <span class="gb_tc" onClick="window.location.reload();">
               <i class="fas fa-home fa-fw"></i>
+
               Home</span>
-            <span class="gb_tc fas fa-camera" onclick="runn('print_area.pyw')">
-              Screenshot</span>
+            <span class="gb_tc" onclick="runn('print_area.pyw')">
+          🌠    Screenshot</span>
             <span class="gb_tc fas fa-cog">
               Configuração</span>
               <span class="gb_tc fas fa-cog">
-                Status</span>
-                <span class="gb_tc fas fa-cog">
-                  Meus Scripts</span>
-          </a>
+                Execultando</span>
+                <span class="gb_tc fas fa-cog"> Meus Scripts</span>
+                <span class="gb_tc fas fa-laptop" onclick="endpoint()"> EndPoint </span>
+                <span class="gb_tc fas fa-question-circle" onclick="classificados()">  Documentação </span>
+          </>
         </div>
     </div>
 
     <nav class="navbar2" id="ray">
         <div class="container2" onclick="click_out()">
           <div class="main_blocos">
+
+            <div class="bloco_importante_flex">
+
+
 
             <div class="bloco_02">
               <h1>Procurar por objeto na tela</h1>
@@ -449,29 +1762,52 @@ font-size: 15px;
             </div>
 
             <div class="bloco_02">
-              <h1>Procurar por Movimento</h1>
-              <a class="bbutons" onclick='null()'>Adicionar ao console</a>
-              <a class="bbutons_config fas fa-cog" onclick='pop("opc2")'></a>
+              <p>Play</p>
+              <div class="classe_botoes_ketpress">
+                <button type="button" id="button_start" onclick="startget()">▶ PLay</button>
+                <button type="button" id="button_stop" onclick="stopget()">🛑 Stop</button>
+                <button type="button" name="button" onclick="putplus()">➕ Add Hotkey</button>
+                <button type="button" name="button" onclick="wipedata_console_keypress()">💩 Apagar</button>
+              </div>
+
+
+              <div class="blocos" id="info"></div>
+              <a class="bbutons" onclick='insert_console("keypress")'>Adicionar ao console</a>
+              <a class="bbutons_config fas fa-cog" onclick='pop("opc3")'></a>
             </div>
 
             <div class="bloco_02">
-              <h1>Pressionar tecla</h1>
-              <a class="bbutons" onclick='insert_console("img")'>Adicionar ao console</a>
-              <a class="bbutons_config fas fa-cog" onclick='pop("opc2")'></a>
-            </div>
-
-            <div class="bloco_02">
-              <h1>Upload script</h1>
-
-              <a class="bbutons" onclick='insert_console("img")'>Adicionar ao console</a>
+              <h1>Lista de palavras</h1>
+              <textarea id="miniconsole" rows="8" cols="80"></textarea>
+              <a class="bbutons" onclick='update_name_defs()'>update</a>
               <a class="bbutons_config fas fa-cog" onclick='pop("opc3")'></a>
 
             </div>
 
+            <div class="bloco_02">
+              <h1 >Relatórios</h1>
+                <DIV onclick='pop("opc3")' style="cursor:pointer;height: 80%;"> <img src="https://www.flaticon.com/svg/static/icons/svg/1055/1055644.svg" class="img-ico"></DIV>
+              <!--<a class="bbutons_config fas fa-cog" onclick='pop("opc3")'></a>-->
+              <div id="wayy" rows="1" cols="21">
+            </div>
+
+
+
           </div>
+          </div>
+          <ul>
+            <li><h1 id="cosole_h1" onclick="show_console()">Hide/Show</h1></li>
+            <li><h1 id="cosole_h1" onclick="run_code_in_python()">Run</h1></li>
+            <li><h1 id="cosole_h1" onclick="download_input()">Salvar offline</h1></li>
 
+            <li>
+              <h1 id="cosole_h1" onclick='pop("opc4")'>Salvar
+                <i class="fab fa-github" ></i>
+              </h1>
 
-          <h1 id="cosole_h1">Console</h1>
+            </li>
+            <li ><h1 onclick='Send_fila()' id="cosole_h1" style="background:#e66600" >▶ Enviar para fila de execução</h1></li>
+          </ul>
 
           <textarea wrap="off" autofocus="off" autocapitalize="off" spellcheck="false" id="console_box" rows="20" cols="3"></textarea>
 
@@ -483,6 +1819,7 @@ font-size: 15px;
 <div class="box" id="box3">
 <span class="fas fa-atom"></span>
 <h1>Tela de Configuração 3</h1>
+<a target="_blank" href="https://pyautogui.readthedocs.io/en/latest/keyboard.html">pyautogui documentation</a>
 <a class="close" id="close_id" onclick="closee()">Close</a>
 </div>
 
@@ -492,35 +1829,139 @@ font-size: 15px;
 <a class="close" id="close_id" onclick="closee()">Close</a>
 </div>
 
+<div class="box" id="box4">
+<span class="fab fa-github"</span>
+<p id="p_github">Salvar no github</p>
+<input type="text" name="" id="input_name_file_save" value="exemplo_calcular()" placeholder="Nome do arquivo">
+<div class="but_down">
+  <a class="close" id="close_id_f1" onclick="closee()">Fechar</a>
+  <a class="close" id="close_id_f2" onclick="saveongit()">Salvar</a>
+  <p id="log_salvo" class="animate__animated animate__shakeX">Envio com sucesso!!!</p>
+</div>
+
+</div>
+
 
 <div class="box" id="box1" style="display: none;">
 <span class="fas fa-folder-open"></span>
 <h1>Configuração de controle</h1>
-<p>Tempo de Segundos procurando:
-<input class="input_time" value="5" type="number" min="0" max="1000"></p>
+<div class="mouse_posit">X: 0 y: 0</div>
+<div class="asd">
+  <p>Tempo de Segundos procurando:
+  <input class="input_time" value="5" type="number" min="0" max="1000"></p>
+</div>
 
 
 
-<p>% Taxa de precision:
-<input class="input_time" value="90" type="number" min="50" max="100"></p>
+<div class="asd">
+  <p>% Taxa de precision:
+    <button type="button" name="button" class="button_prec" onclick="test_similarity()">Test similarity</button>
+  <input class="input_precision" value="90" type="number" min="50" max="100">
+  <input class="input_object" value="1" type="number" min="1" max="100">
+</p>
+
+
 
 <p>Set cod flag erro:
 <input class="input_time" type="text" name="" value="FailSearch(img1)">
 </p>
-<p>Fazer ao encontrar:
+<p>Ação ao encontrar:
     <select>
-      <option value="0">Click no Centro com Esquerdo</option>
-      <option value="1">Click no Centro com Direitro</option>
-      <option value="2">BMW</option>
-
+      <option value="0">Click com Esquerdo</option>
+      <option value="1">Click com Direitro</option>
     </select>
+  </p>
 
-</p>
-<p>Realizar ajuste automatico:
-<a class="fa fa-square check_bbox" onclick="check()"></a>
-</p>
 
+  <div class="btou">
+    <a class="close" id="close_id_prec" onclick="show_img_end_get_position()">Set onde clicar</a>
+  </div>
+
+
+  <div class="btou">
+    <p>Realizar ajuste automatico: <a class="fa fa-square check_bbox" onclick="check()"></a></p>
+  </div>
+<div class="bto">
 <a class="close" id="close_id" onclick="closee()">Close</a>
+</div>
+<div class="show_imger" style="display:none;">
+  <div id="myresult" class="img-zoom-result"></div>
+</div>
+</div>
+</div>
+<div class="div_img_display"></div>
+
+<div class="classificados" style="display: none" >
+  <!--<a type="button" name="button" id="voltar_class" onclick="antishow()">Fechar</a>-->
+   <div class="main_classificados">
+
+</div>
+<!--adciioncar aqui a documentacao -->
+<div class="documenta" style="display: none" onclick="antishow()">
+<!--
+  <div id="img_lug">
+       <img id="imgid" src="https://i.imgur.com/T3Ht7S3.gif" alt="imagem vai aqui!!">
+     </div>
+
+     <div class="blocokkk">
+
+
+         <button id="addobj" class="doctb" type="button" name="button" onclick="addy()">Add object</button>
+         <button type="button" class="doctb" name="button" onclick="diaable()">Disable edition</button>
+         <button type="button" class="doctb" name="button" onclick="duper()">Enable edicao</button>
+         <button id="savebtn" class="doctb" type="button" name="button" onclick="getPositionSave()">Save</button>
+
+         </div>
+         -->
+</div>
+</div>
+<div class="documenta_super" style="display: none" onclick="closee()"></div>
+<div class="documenta_mini" style="display: none" onclick="closee()"></div>
+
+
+
+<div class="minhas_tasks" style="display:none">
+
+  <div class="limiter">
+		<div class="container-table100">
+			<div class="wrap-table100">
+					<div class="table">
+						<div id="tabela" class="row header">
+
+
+
+							<div class="cell">
+								ID
+							</div>
+
+              <div class="cell">
+								Estatus
+							</div>
+
+							<div class="cell">
+								Nome script
+							</div>
+
+							<div class="cell">
+								Descrição
+							</div>
+
+							<div class="cell">
+								Duração
+							</div>
+
+						</div>
+
+
+
+					</div>
+			</div>
+		</div>
+	</div>
+
+
+
+
 
 </div>
 
